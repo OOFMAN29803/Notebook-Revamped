@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+body {
+background-image: url("18.jpg");
+background-size: cover;
+background-repeat: no-repeat
+}
+p {
+font-family: "Plus Jakarta Sans", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+}
+
+#mainDiv {
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+border-radius: 20px;
+border:1px solid rgba(255, 255, 255, 0.18);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+transition: 0.3s ease;
+width: 70%;
+height: 600px;
+border-radius: 20px;
+padding: 10px;
+font-family: "Plus Jakarta Sans", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+text-align: left;
+overflow: auto;
+outline: none;
+}
+
+#topBanner {
+background-color: #B5FBFF;
+width: 90%;
+height: 90px;
+border-radius: 10px;
+margin-top: 30px;
+margin-bottom: 40px;
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+border-radius: 20px;
+border:1px solid rgba(255, 255, 255, 0.18);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+transition: 0.2s ease;
+}
+
+#mainDiv:focus {
+background-color: #CBEFF5;
+width: 73%;
+height: 620px;
+border-radius: 20px;
+padding: 10px;
+font-family: "Plus Jakarta Sans", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+text-align: left;
+}
+
+button {
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+border-radius: 20px;
+border:1px solid rgba(255, 255, 255, 0.18);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+font-family: "Plus Jakarta Sans", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+margin-top: 20px;
+transition: 0.2s ease;
+width: 7%;
+height: 40px;
+border-radius: 5px;
+margin-left: 20px;
+
+}
+
+button:hover {
+background-color: #8CB6FF;
+}
+
+#boldButton {
+font-weight: 700;
+}
+
+.boldText {
+font-weight: 700;
+}
+
+.underlineText {
+text-decoration: underline;
+}
+
+#underlineButton {
+text-decoration: underline;
+}
+
+.highlighted {
+background-color: yellow;
+}
+
+#inputTitle {
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+border-radius: 20px;
+border:1px solid rgba(255, 255, 255, 0.18);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+font-family: "Plus Jakarta Sans", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+height: 30px;
+width: 20%;
+transition: 0.3s ease;
+padding: 3px;
+border-radius: 5px;
+color: white;
+outline: none;
+}
+#inputTitle:focus {
+width: 21%;
+height: 32px;
+color: black;
+background-color: #8CB6FF;
+}
+
+.italic {
+font-style: italic;
+}
+
+#italicButton {
+font-style: italic;
+}
+
+#extraFeatureDiv {
+width: 10%;
+height: 30px;
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+border-radius: 20px;
+border:1px solid rgba(255, 255, 255, 0.18);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+font-family: "Plus Jakarta Sans", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+position: fixed;
+top: 25%;
+left: 2.25%;
+text-align: center;
+border-radius: 5px;
+transition: 0.2s ease;
+overflow: hidden;
+}
+
+#extraFeatureDiv:hover {
+height: 600px;
+}
+
+#urlImage {
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+border-radius: 20px;
+border:1px solid rgba(255, 255, 255, 0.18);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+font-family: "Plus Jakarta Sans", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+border-radius: 5px;
+height: 20px;
+width: 90%;
+outline: none;
+transition: 0.3s ease;
+margin-top: 20px;
+}
+
+#urlImage:hover {
+background-color: #8CB6FF;
+}
+
