@@ -6,12 +6,13 @@
 </head>
 <body>
 
-<input id="inputTitle" placeholder="Document Name..."></input>
-<center><div id="topBanner"><button id="boldButton">Bold</button><button id="underlineButton">Underline</button><button id="highlightButton">Highlight</button><button id="italicButton">Italic</button><button id="downloadButton" onclick="downloadtxt()">Download</button><button id="importButton" onclick="importTxtFile()">Import</button></div></center>
+<input id="inputTitle" placeholder="Document Name..." maxlength=20></input>
+<center><div id="topBanner"><button id="boldButton">Bold</button><button id="underlineButton">Underline</button><button id="highlightButton">Highlight</button><button id="italicButton">Italic</button><button id="downloadButton" onclick="downloadtxt()">Download</button><button id="importButton" onclick="importTxtFile()">Import</button><button id="iFrameButton">iFrame</button><button id="codeBlockButton">Codeblock</button><button id="AIimportButton" onclick="AIopenMenu()">SilicoLM</button></div></center>
 <div id="extraFeatureDiv">Extras<br>
-<input id="urlImage" oninput="changeBackground()" placeholder="Replace image with URL"></input></div>
-<center><div contenteditable id="mainDiv"></div></center>
-<script src="main.js">
-</script>
+<center><button id="clearButton" onclick="clearButton()">Clear</button></div>
+</center><center><div contenteditable id="mainDiv"></div></center>
+<div id="mainAIDiv"><input id="AIprompt"><button id="generateButton">Generate</button></input><br><p id="responseFromAI">AI from SilicoLM is coming soon...</p><br><button id="mainAIcloseDiv" onclick="AIcloseMenu()">Close</button></div>
+<script src="main.js"></script>
+
 </body>
 </html>

@@ -1,5 +1,5 @@
 document.getElementById('boldButton').addEventListener('click', function () {
-  const contentDiv = document.getElementById('textarea');
+  const contentDiv = document.getElementById('mainDiv');
   const selection = window.getSelection();
   const range = selection.getRangeAt(0);
   const selectedText = range.toString();
@@ -8,6 +8,21 @@ console.log("clicked")
     const span = document.createElement('b');
     span.className = 'boldText';
     span.textContent = selectedText;
+
+    range.deleteContents();
+    range.insertNode(span);
+  }
+});
+
+document.getElementById('iFrameButton').addEventListener('click', function () {
+  const contentDiv = document.getElementById('mainDiv');
+  const selection = window.getSelection();
+  const range = selection.getRangeAt(0);
+  const selectedText = range.toString();
+  if (selectedText !== '') {
+    const span = document.createElement('iframe');
+    span.className = 'iframe';
+    span.src = selectedText;
 
     range.deleteContents();
     range.insertNode(span);
@@ -46,6 +61,27 @@ document.getElementById('highlightButton').addEventListener('click', function ()
   }
 });
 
+document.getElementById('codeBlockButton').addEventListener('click', function () {
+  const contentDiv = document.getElementById('textarea');
+  const selection = window.getSelection();
+  const range = selection.getRangeAt(0);
+  const selectedText = range.toString();
+
+if (selectedText !== '') {
+    const spanDiv = document.createElement('div');
+    const span = document.createElement('code');
+    span.className = 'codeBlock';
+    span.textContent = selectedText;
+    spanDiv.className = 'spanDiv';
+
+    spanDiv.appendChild(span);
+
+    range.deleteContents();
+    range.insertNode(spanDiv);
+}
+});
+
+
 document.getElementById('italicButton').addEventListener('click', function () {
   const contentDiv = document.getElementById('textarea');
   const selection = window.getSelection();
@@ -79,7 +115,7 @@ async function importTxtFile() {
   // Create a hidden file input element
   const input = document.createElement('input');
   input.type = 'file';
-  input.accept = '.txt, .png, .jpg, .jpeg, .gif, .mp4, .mov, .avi'; // Accept various file types
+  input.accept = '.txt, .png, .jpg, .jpeg, .gif, .mp4, .mov, .avi, .mp3, .ogg, .wav'; // Accept various file types
   input.style.display = 'none'; 
   document.body.appendChild(input);
 
@@ -121,6 +157,14 @@ async function importTxtFile() {
     video.controls = true; 
     mainDiv.innerHTML = ''; // Clear any existing content in mainDiv
     mainDiv.appendChild(video);
+
+  } else if (file.type.startsWith('audio/')) {
+    // Process Video Files
+    const audio = document.createElement('audio');
+    audio.src = URL.createObjectURL(file);
+    audio.controls = true; 
+    mainDiv.innerHTML = ''; 
+    mainDiv.appendChild(audio);
   } else {
     // If the file type is not supported you can add code here
     // to display an error message or handle the file differently.
@@ -129,7 +173,16 @@ async function importTxtFile() {
 
 function mainTitle() {
 mainInputTitle = document.getElementById("inputTitle").value
+if (mainInputTitle === "") {
+document.title = "Untitled Document - Notebook Revamped"
+} else {
+ if (mainInputTitle.length > 12) {
+mainInputCutoff = mainInputTitle.substring(0,12)
+document.title = mainInputCutoff + "... - Notebook Revamped"
+} else {
 document.title = mainInputTitle + " - Notebook Revamped"
+}
+}
 }
 
 function changeBackground() {
@@ -142,4 +195,25 @@ body.style.backgroundImage = "url(" + input + ")"
 }
 }
 
+
+function clearButton() {
+div = document.getElementById("mainDiv")
+div.innerHTML = ""
+}
+
+function AIopenMenu() {
+aiMenu = document.getElementById("mainAIDiv")
+aiMenu.style.display = "block"
+mainDiv = document.getElementById("mainDiv")
+mainDiv.style.width = "50%"
+mainDiv.style.marginRight = "250px"
+}
+
+function AIcloseMenu() {
+aiMenu = document.getElementById("mainAIDiv")
+aiMenu.style.display = "none"
+mainDiv = document.getElementById("mainDiv")
+mainDiv.style.width = "70%"
+mainDiv.style.marginRight = "0px"
+}
 setInterval(mainTitle, 1000)
