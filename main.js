@@ -115,10 +115,10 @@ async function importTxtFile() {
   // Create a hidden file input element
   const input = document.createElement('input');
   input.type = 'file';
+input.id = "fileInput"
   input.accept = '.txt, .png, .jpg, .jpeg, .gif, .mp4, .mov, .avi, .mp3, .ogg, .wav'; // Accept various file types
   input.style.display = 'none'; 
   document.body.appendChild(input);
-
   // Trigger the file selection dialog
   input.click(); 
 
@@ -136,6 +136,7 @@ async function importTxtFile() {
     const content = await file.text();
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(content, 'text/html');
+alert("REMEMBER! as much as scripts are meant to be images, videos etc. please look at scripts that are txt's and other files as they could run scripts")
 
     const contentDiv = document.createElement('div');
     contentDiv.innerHTML = xmlDoc.body.innerHTML;
@@ -149,6 +150,7 @@ async function importTxtFile() {
     image.src = URL.createObjectURL(file);
     mainDiv.innerHTML = ''; // Clear any existing content in mainDiv
     mainDiv.appendChild(image);
+alert("REMEMBER! as much as scripts are meant to be images, videos etc. please look at scripts that are txt's and other files as they could run scripts")
 
   } else if (file.type.startsWith('video/')) {
     // Process Video Files
@@ -157,6 +159,7 @@ async function importTxtFile() {
     video.controls = true; 
     mainDiv.innerHTML = ''; // Clear any existing content in mainDiv
     mainDiv.appendChild(video);
+alert("REMEMBER! as much as scripts are meant to be images, videos etc. please look at scripts that are txt's and other files as they could run scripts")
 
   } else if (file.type.startsWith('audio/')) {
     // Process Video Files
@@ -165,9 +168,13 @@ async function importTxtFile() {
     audio.controls = true; 
     mainDiv.innerHTML = ''; 
     mainDiv.appendChild(audio);
+alert("REMEMBER! as much as scripts are meant to be images, videos etc. please look at scripts that are txt's and other files as they could run scripts")
   } else {
-    // If the file type is not supported you can add code here
-    // to display an error message or handle the file differently.
+  setTimeout(() => {
+    mainDiv.innerHTML = "";
+}, 20);   
+ mainDiv.innerHTML = "Sorry, this file type isn't supported as it can pose security concerns such as injections"
+
   }
 }
 
