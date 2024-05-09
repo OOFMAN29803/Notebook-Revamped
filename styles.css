@@ -94,7 +94,7 @@ width: 20%;
 transition: 0.3s ease;
 padding: 3px;
 border-radius: 5px;
-color: white;
+color: black;
 outline: none;
 border: none;
 }
@@ -163,22 +163,53 @@ border-radius: 10px;
 padding: 3px;
 }
 
-
-#clearButton {
-width: 80%;
-margin-top: 100px;
-margin-right: 10px;
-}
-
 #AIimportButton {
 background-color: #7070FF;
 transition: 0.5s ease;
+width: 40px;
+height: 40px;
+border-radius: 999px;
+color: white;
+display: flex;
+ justify-content: center;
+align-items: center; 
+margin-left: 20px;
+animation: ease 0.3s;
 }
 
 #AIimportButton:hover {
-color: white;
-border: 3px solid white;
+  animation: spinAndChange 5s infinite;
 }
+
+@keyframes spinAndChange {
+  0% {
+    transform: rotate(0deg) scale(1);
+    border-radius: 100%;
+    background: linear-gradient(90deg, #00008B, #FFC0CB);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.0);
+    border-radius: 50%;
+    background: linear-gradient(90deg, #00008B, #FFC0CB);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.0);
+    border-radius: 25%;
+    background: linear-gradient(90deg, #00008B, #FFC0CB);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.0);
+    border-radius: 50%;
+    background: linear-gradient(90deg, #00008B, #FFC0CB);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    border-radius: 25%;
+    background: linear-gradient(90deg, #00008B, #FFC0CB);
+  }
+}
+
+
 
 #mainAIDiv {
 width: 24%;
@@ -186,14 +217,14 @@ height: 580px;
 position: fixed;
 top: 22.5%;
 right: 3%;
-background-color: #6675FF;
+background-color: #00008B;
 padding: 20px;
 border-radius: 20px;
 display: none;
 transition: 0.3s ease;
 }
 
-#AIprompt {
+#sentenceInput {
 padding: 5px;
 width: 97%;
 height: 20px;
@@ -207,7 +238,7 @@ outline: none;
 
 #generateButton {
 width: 35%;
-height: 25px;
+height: 35px;
 }
 
 #responseFromAI {
@@ -219,8 +250,49 @@ font-weight: 700;
 #mainAIcloseDiv {
 width: 30%;
 margin-top: 300px;
+height: 40px;
 }
 
 .linkSpace {
 color: #ffffff;
+}
+
+#size {
+width: 30px;
+outline: none;
+border-radius: 5px;
+border: none;
+margin-left: 10px;
+}
+
+.soundDiv {
+width: 30%;
+height: 100px;
+background-color: #96D5FF;
+border: none;
+border-radius: 10px;
+}
+
+.audioBar {
+margin-left: 15px;
+margin-top: 15px;
+width: 90%;
+}
+
+.wordAI {
+color: white;
+font-size: 20px;
+}
+
+#inputTitle, #AIimportButton {
+float: left;
+}
+
+#inputText {
+width: 95%;
+height: 30px;
+border-radius: 15px;
+padding: 3px;
+outline: none;
+border: none;
 }

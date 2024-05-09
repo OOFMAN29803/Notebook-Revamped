@@ -81,7 +81,6 @@ if (selectedText !== '') {
 }
 });
 
-
 document.getElementById('italicButton').addEventListener('click', function () {
   const contentDiv = document.getElementById('textarea');
   const selection = window.getSelection();
@@ -98,19 +97,6 @@ document.getElementById('italicButton').addEventListener('click', function () {
   }
 });
 
-function downloadtxt() {
-  const editableDiv = document.getElementById('mainDiv');
-  const htmlContent = editableDiv.innerHTML;
-  const blob = new Blob([htmlContent], { type: 'text/plain' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = document.getElementById("inputTitle").value + '.txt';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-}
 async function importTxtFile() {
   // Create a hidden file input element
   const input = document.createElement('input');
@@ -166,8 +152,12 @@ alert("REMEMBER! as much as scripts are meant to be images, videos etc. please l
     const audio = document.createElement('audio');
     audio.src = URL.createObjectURL(file);
     audio.controls = true; 
+    soundDiv = document.createElement("div")
+    soundDiv.className = "soundDiv"
+    audio.className = "audioBar"
     mainDiv.innerHTML = ''; 
-    mainDiv.appendChild(audio);
+    soundDiv.appendChild(audio);
+    mainDiv.appendChild(soundDiv);
 alert("REMEMBER! as much as scripts are meant to be images, videos etc. please look at scripts that are txt's and other files as they could run scripts")
   } else {
   setTimeout(() => {
@@ -211,9 +201,13 @@ div.innerHTML = ""
 function AIopenMenu() {
 aiMenu = document.getElementById("mainAIDiv")
 aiMenu.style.display = "block"
+aiButton = document.getElementById("AIimportButton")
+aiButton.style.background = "linear-gradient(90deg, #00008B, #FFC0CB)";
+
 mainDiv = document.getElementById("mainDiv")
 mainDiv.style.width = "50%"
 mainDiv.style.marginRight = "250px"
+
 }
 
 function AIcloseMenu() {
@@ -222,5 +216,40 @@ aiMenu.style.display = "none"
 mainDiv = document.getElementById("mainDiv")
 mainDiv.style.width = "70%"
 mainDiv.style.marginRight = "0px"
+aiButton = document.getElementById("AIimportButton")
+aiButton.style.background = "#7070FF";
 }
+
+async function downloadtxtFull() {
+  const htmlContent = document.body.innerHTML;
+
+  const cssURLs = ['styles.css']; // Replace 'styles.css' with the path to your CSS file(s)
+  for (const cssURL of cssURLs) {
+    const response = await fetch(cssURL);
+    const cssContent = await response.text();
+    htmlContent += `<style>${cssContent}</style>`;
+  }
+
+  const jsURLs = ['script.js']; // Replace 'script.js' with the path to your JavaScript file(s)
+  for (const jsURL of jsURLs) {
+    const response = await fetch(jsURL);
+    const jsContent = await response.text();
+    htmlContent += `<script>${jsContent}</script>`;
+  }
+
+  const blob = new Blob([htmlContent], { type: 'text/html' });
+
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = document.getElementById("inputTitle").value + '.html';
+  document.body.appendChild(a);
+  a.click();
+
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+
 setInterval(mainTitle, 1000)

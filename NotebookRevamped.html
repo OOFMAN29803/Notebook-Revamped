@@ -3,17 +3,19 @@
 <head>
 <link rel="stylesheet" type="text/css" href="styles.css"></link>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+
 <title>Untitled Notebook - Notebook Revamped</title>
 </head>
 <body>
 
-<input id="inputTitle" placeholder="Document Name..." maxlength=20></input>
-<center><div id="topBanner"><button id="boldButton">Bold</button><button id="underlineButton">Underline</button><button id="highlightButton">Highlight</button><button id="italicButton">Italic</button><button id="downloadButton" onclick="downloadtxt()">Download</button><button id="importButton" onclick="importTxtFile()">Import</button><button id="iFrameButton">iFrame</button><button id="codeBlockButton">Codeblock</button><button id="AIimportButton" onclick="AIopenMenu()">SilicoLM</button></div></center>
-<div id="extraFeatureDiv">Extras<br>
-<center><button id="clearButton" onclick="clearButton()">Clear</button></div>
+<input id="inputTitle" placeholder="Document Name..." maxlength=20></input><div id="AIimportButton" onclick="AIopenMenu()"><p class="wordAI">✨</p></div>
+<br>
+<center><div id="topBanner"><button id="boldButton">Bold</button><button id="sandboxButton">Sandbox</button><button id="underlineButton">Underline</button><button id="highlightButton">Highlight</button><button id="italicButton">Italic</button><button id="downloadButton" onclick="downloadtxtFull()">Download</button><button id="importButton" onclick="importTxtFile()">Import</button><button id="iFrameButton">iFrame</button><button id="codeBlockButton">Codeblock</button><button id="clearButton" onclick="clearButton()">Clear</button></div></center>
 </center><center><div contenteditable id="mainDiv"></div></center>
-<div id="mainAIDiv"><input id="AIprompt"><button id="generateButton">Generate</button></input><br><p id="responseFromAI">AI from SilicoLM is coming soon... Unfortunately there is a problem due to apprent duplicate weights that doesn't exist and has been named differently. Learn more on AI and ML: <a class="linkSpace" href="https://ai.google/">https://ai.google/</a></p><br><button id="mainAIcloseDiv" onclick="AIcloseMenu()">Close</button></div>
+<div id="mainAIDiv"><input text="text" id="inputText">  <button id="generateButton" onclick="generateSentence()">Generate Sentence</button>
+</input><br><p id="outputText"></p><br><button id="mainAIcloseDiv" onclick="AIcloseMenu()">Close</button></div>
 <script src="main.js"></script>
-
+</script>
 </body>
 </html>
