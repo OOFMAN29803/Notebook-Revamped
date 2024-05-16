@@ -28,10 +28,11 @@ outline: none;
 background-color: #ADE4FF;
 width: 90%;
 height: 90px;
-border-radius: 10px;
+border-radius: 40px;
 margin-top: 30px;
 margin-bottom: 40px;
 transition: 0.2s ease;
+overflow: auto;
 }
 
 #mainDiv:focus {
@@ -53,17 +54,39 @@ font-optical-sizing: auto;
 font-style: normal;
 margin-top: 20px;
 transition: 0.2s ease;
-width: 7%;
+width: 8%;
 height: 40px;
 border-radius: 5px;
 margin-left: 20px;
 border: none;
 background-color: #6ECAFF;
+overflow: hidden;
 }
 
 button:hover {
-background-color: #8CB6FF;
+background: linear-gradient(270deg, #59FFF9, #B5D8FF);
+    background-size: 300% 300%;
+    animation: GradientFlow 5s ease infinite;
 }
+
+@-webkit-keyframes GradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@-moz-keyframes GradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes GradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 
 #boldButton {
 font-weight: 700;
@@ -89,6 +112,8 @@ background-color: yellow;
 font-family: "Plus Jakarta Sans", sans-serif;
 font-optical-sizing: auto;
 font-style: normal;
+font-weight: 700;
+font-size: 20px;
 height: 30px;
 width: 20%;
 transition: 0.3s ease;
@@ -178,38 +203,46 @@ animation: ease 0.3s;
 }
 
 #AIimportButton:hover {
-  animation: spinAndChange 5s infinite;
+    background: linear-gradient(270deg, #00008B, #FFC0CB);
+    background-size: 200% 200%;
+    animation: spinAndChange 10s linear infinite, GradientFlow 5s ease infinite;
+}
+
+@-webkit-keyframes GradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@-moz-keyframes GradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes GradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 @keyframes spinAndChange {
-  0% {
-    transform: rotate(0deg) scale(1);
-    border-radius: 100%;
-    background: linear-gradient(90deg, #00008B, #FFC0CB);
-  }
-  25% {
-    transform: rotate(90deg) scale(1.0);
-    border-radius: 50%;
-    background: linear-gradient(90deg, #00008B, #FFC0CB);
-  }
-  50% {
-    transform: rotate(180deg) scale(1.0);
-    border-radius: 25%;
-    background: linear-gradient(90deg, #00008B, #FFC0CB);
-  }
-  75% {
-    transform: rotate(270deg) scale(1.0);
-    border-radius: 50%;
-    background: linear-gradient(90deg, #00008B, #FFC0CB);
-  }
-  100% {
-    transform: rotate(360deg) scale(1);
-    border-radius: 25%;
-    background: linear-gradient(90deg, #00008B, #FFC0CB);
-  }
+    0%, 100% {
+        border-radius: 100%; /* Changed from 100% to 999px for consistency */
+    }
+
+25% {
+        border-radius: 20%;
+    }
+
+    50% {
+        border-radius: 100%;
+    }
+75% {
+        border-radius: 20%;
+    }
+
 }
-
-
 
 #mainAIDiv {
 width: 24%;
@@ -234,11 +267,36 @@ font-family: "Plus Jakarta Sans", sans-serif;
 font-optical-sizing: auto;
 font-style: normal;
 outline: none;
+
 }
 
 #generateButton {
 width: 35%;
 height: 35px;
+
+#generateButton:hover {
+    background: linear-gradient(270deg, #FFFFFF, #FFC0CB, CFFFF0, CFC9FF);
+    background-size: 200% 200%;
+    animation: GradientFlow 5s ease infinite;
+}
+
+@-webkit-keyframes GradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@-moz-keyframes GradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes GradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 }
 
 #responseFromAI {
@@ -295,4 +353,54 @@ border-radius: 15px;
 padding: 3px;
 outline: none;
 border: none;
+font-family: "Plus Jakarta Sans", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+font-weight: 800;
+}
+
+#inputText:focus {
+    background: linear-gradient(270deg, black, #FFC0CB,);
+    background-size: 100% 100%;
+    animation: GradientFlow 2s ease infinite;
+}
+
+@-webkit-keyframes GradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@-moz-keyframes GradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes GradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#inactive {
+display: none;
+background-image: url("main.png");
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+display: none;
+width: 100%;
+height: 100vh;
+position: fixed;
+top: 0;
+left: 0;
+}
+
+#timeAmbience {
+font-size: 250px;
+font-weight: 700;
+margin-top: 10vh;
+color: #4DFFCF;
+user-select: none;
 }

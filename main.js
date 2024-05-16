@@ -1,3 +1,6 @@
+let timer;
+const inactivityThreshold = 600000; 
+
 document.getElementById('boldButton').addEventListener('click', function () {
   const contentDiv = document.getElementById('mainDiv');
   const selection = window.getSelection();
@@ -79,8 +82,8 @@ if (selectedText !== '') {
     range.deleteContents();
     range.insertNode(spanDiv);
 }
-});
 
+});
 document.getElementById('italicButton').addEventListener('click', function () {
   const contentDiv = document.getElementById('textarea');
   const selection = window.getSelection();
@@ -220,36 +223,59 @@ aiButton = document.getElementById("AIimportButton")
 aiButton.style.background = "#7070FF";
 }
 
-async function downloadtxtFull() {
-  const htmlContent = document.body.innerHTML;
-
-  const cssURLs = ['styles.css']; // Replace 'styles.css' with the path to your CSS file(s)
-  for (const cssURL of cssURLs) {
-    const response = await fetch(cssURL);
-    const cssContent = await response.text();
-    htmlContent += `<style>${cssContent}</style>`;
-  }
-
-  const jsURLs = ['script.js']; // Replace 'script.js' with the path to your JavaScript file(s)
-  for (const jsURL of jsURLs) {
-    const response = await fetch(jsURL);
-    const jsContent = await response.text();
-    htmlContent += `<script>${jsContent}</script>`;
-  }
-
-  const blob = new Blob([htmlContent], { type: 'text/html' });
-
-  const url = URL.createObjectURL(blob);
-
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = document.getElementById("inputTitle").value + '.html';
-  document.body.appendChild(a);
-  a.click();
-
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+function downloadtxt() {
+    const editableDivs = document.getElementById("mainDiv")
+    const textValues = [];
+    editableDivs.forEach(div => {
+        textValues.push(div.innerHTML);
+    });
+    const htmlContent = textValues.join('\n');
+    const blob = new Blob([htmlContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = document.getElementById("inputTitle").value + '.nb';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 }
 
+function resetTimer() {
+    clearTimeout(timer);
+    timer = setTimeout(onInactive, inactivityThreshold);
+}
+
+function onInactive() {
+everything = document.getElementById('allContainer')
+everything.style.display = "none"
+inactiveDiv = document.getElementById("inactive")
+inactiveDiv.style.display = "block"
+}
+function dissappear() {
+everything = document.getElementById('allContainer')
+everything.style.display = "block"
+inactiveDiv = document.getElementById("inactive")
+inactiveDiv.style.display = "none"
+}
+
+window.onload = resetTimer;
+document.onmousemove = resetTimer;
+document.onkeypress = resetTimer;
+document.ontouchstart = resetTimer; // for touch devices
+document.onclick = resetTimer;      // for mouse clicks
+document.onkeydown = resetTimer; 
+
+function updateTime() {
+  const currentTime = new Date();
+  const hours = currentTime.getHours();
+  const minutes = currentTime.getMinutes();
+  const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+  var time = document.getElementById("timeAmbience");
+  time.innerHTML = hours.toString().padStart(2, '0') + "<br>" + minutes.toString().padStart(2, '0');
+}
+
+setInterval(updateTime, 60);
+
+updateTime();
 
 setInterval(mainTitle, 1000)
