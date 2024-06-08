@@ -4,21 +4,37 @@
 <link rel="stylesheet" type="text/css" href="styles.css"></link>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@2"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
-
+<meta charset="UTF-8">
 <title>Untitled Notebook - Notebook Revamped</title>
 </head>
 <body>
 <div id="allContainer">
-<input id="inputTitle" placeholder="Document Name..." maxlength=20></input><div id="AIimportButton" onclick="AIopenMenu()"><p class="wordAI">✨</p></div>
+<input id="inputTitle" placeholder="Document Name..." maxlength=20></input><button id="AIimportButton" style="display: none;" onclick="AIopenMenu()"><p class="wordAI">✨</p></button><button onclick="openCustom()" id="buttonThat">✏️</button>
+
+<center><div id="customization"><input oninput="vividspectrumrandomize()" id="inputColorDesign" maxlength="6"></input>
 <br>
-<center><div id="topBanner"><button id="boldButton">Bold</button><button id="sandboxButton">Sandbox</button><button id="underlineButton">Underline</button><button id="highlightButton">Highlight</button><button id="italicButton">Italic</button><button id="downloadButton" onclick="downloadtxt()">Download</button><button id="importButton" onclick="importTxtFile()">Import</button><button id="iFrameButton">iFrame</button><button id="codeBlockButton">Codeblock</button><button id="clearButton" onclick="clearButton()">Clear</button></div></center>
-</center><center><div contenteditable id="mainDiv"></div></center>
-<div id="mainAIDiv"><input text="text" id="inputText">  <button id="generateButton" onclick="generateSentence()">Generate Sentence</button>
-</input><br><p id="outputText"></p><br><button id="mainAIcloseDiv" onclick="AIcloseMenu()">Close</button></div>
+<div id="squareColor"></div><button onclick="closeCustom()">Close</button>
+<br>
+<button onclick="textWhite()">White Text</button><button onclick="textBlack()">Black Text</button>
+<br>
+<p style="font-size: 10px; margin-top: 20px;">Algorithms can make non-optimal themes. However you can change them at anytime.</p>
+</div></center>
+<br>
+
+<center><div id="topBanner"><button id="boldButton">Bold</button><button id="underlineButton">Underline</button><button id="highlightButton">Highlight</button><button id="italicButton">Italic</button><button id="downloadButton" onclick="downloadtxt()">Download</button><button id="importButton" onclick="importTxtFile()">Import</button><button id="iFrameButton">iFrame</button><button id="codeBlockButton">Codeblock</button><button id="clearButton" onclick="clearButton()">Clear</button></div></center>
+
+<center><div contenteditable id="mainDiv"></div></center>
+<div id="mainAIDiv"><input text="text" id="inputText"> <button id="generateButton" onclick="generateSentence()">Generate Sentence</button></input><br><p id="outputText"></p><br><button id="mainAIcloseDiv" onclick="AIcloseMenu()">Close</button></div>
+
+<center><div id="experimentalDiv"><p class="exTi">Experimental (Beta)</p> 
+<div class="divContainerExperiment"><p class="previewEx">Remove Top Banner background<br><small>Only available without personalisation</small></p><div id="check1" class="experimentButton" onclick="experimentTopBar()"></div></div>
+
+<div class="divContainerExperiment"><p class="previewEx">Disable RealVibrancy Colour Algorithm<br><small>Creates weird margin and button bugs</small></p><div id="check2" class="experimentButton" onclick="experimentDisableColor()"></div><button id="buttonCloseEx" onclick="closeEx()">Close</button></div>
+</div>
+</center>
 </div>
 <center><div id="inactive" onclick="dissappear()"><p id="timeAmbience">00<br>00</p></div></center>
-<script src="main.js"></script>
-</script>
+<script src="mainCode.js"></script>
 <script>
 function downloadtxt() {
     const editableDivs = document.getElementById("mainDiv");
@@ -33,6 +49,74 @@ function downloadtxt() {
     document.body.removeChild(a);
 }
 
+var modifiedHexValueAll1 = "000000";
+var modifiedHexValueAll2 = "000000";
+var modifiedHexValueAll3 = "000000";
+var modifiedHexValueAll4 = "000000";
+var modifiedHexValueAll5 = "000000";
+var buttonhovers = "#000000";
+
+function modifyDecimal(value, modifier) {
+  var result = (value + modifier) % 256;
+  if (result < 0) {
+    result += 256;
+  }
+  return result;
+}
+
+function vividspectrumrandomize() {
+  var inputHex = document.getElementById("inputColorDesign").value;
+  if (/^[0-9A-Fa-f]{6}$/.test(inputHex)) {
+    var originalFirst4Digits = inputHex.slice(0, 4);
+    var last2Digits = inputHex.slice(4);
+    var colors = modifyColors(originalFirst4Digits, parseInt(last2Digits, 16));
+    updateUI(colors);
+  } else {
+    console.log("Invalid Hexadecimal Input entered: " + inputHex);
+  }
+}
+
+function modifyColors(first4Digits, decimalValue) {
+  const modifications = [-150, -70, -30, -10, 30];
+  return modifications.map(mod => {
+    const newDecimalValue = Math.min(Math.max(decimalValue + mod, 0), 255); // Ensures the value is between 0 and 255
+    return "#" + first4Digits + newDecimalValue.toString(16).toUpperCase().padStart(2, '0');
+  });
+}
+
+function updateUI(colors) {
+  var body = document.body;
+  var sidemenu = document.getElementById("topBanner");
+  var allbuttons = document.querySelectorAll("button");
+  sidemenu.style.backgroundColor = colors[0];
+  body.style.background = colors[2];
+
+  // Iterate over each button and set its background color
+  allbuttons.forEach(button => {
+    button.style.backgroundColor = colors[4];
+  });
+}
+
+function color() {
+color = document.getElementById("inputColorDesign").value
+square = document.getElementById("squareColor")
+square.style.backgroundColor = "#" + color 
+}
+
+function textWhite() {
+  var allbuttons = document.querySelectorAll("button");
+  allbuttons.forEach(button => {
+    button.style.color = "white";
+  });
+}
+
+function textBlack() {
+  var allbuttons = document.querySelectorAll("button");
+  allbuttons.forEach(button => {
+    button.style.color = "black";
+  });
+}
+setInterval(color, 100)
 </script>
 </body>
 </html>
