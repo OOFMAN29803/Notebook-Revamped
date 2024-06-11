@@ -1,7 +1,9 @@
 let timer;
-const inactivityThreshold = 600000; 
+var inactivityThreshold = 600000; 
 var experiment1 = 1;
 var experiment2 = 1;
+var experiment3 = 1;
+var controlopened = 1;
 
 document.getElementById('boldButton').addEventListener('click', function () {
   const contentDiv = document.getElementById('mainDiv');
@@ -273,8 +275,20 @@ function updateTime() {
   const minutes = currentTime.getMinutes();
   const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
   var time = document.getElementById("timeAmbience");
-  time.innerHTML = hours.toString().padStart(2, '0') + "<br>" + minutes.toString().padStart(2, '0');
+  time.innerHTML = hours.toString().padStart(2, '0') + ":" + minutes.toString().padStart(2, '0');
+
 }
+
+function updateTime2() {
+  const currentTime = new Date();
+  const hours = currentTime.getHours();
+  const minutes = currentTime.getMinutes();
+  const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+  var time = document.getElementById("timeAmbience2");
+  time.innerHTML = hours.toString().padStart(2, '0') + "<br>" + minutes.toString().padStart(2, '0');
+
+}
+
 
 function openCustom() {
 custom = document.getElementById("customization")
@@ -326,6 +340,20 @@ colorthing.onclick = openCustom
 }
 }
 
+function experimentDisableTitleBar() {
+var check3 = document.getElementById("check3")
+var colorthing = document.getElementById("topBarTopTop")
+if (experiment3 == 1) {
+experiment3 = 2
+check3.style.backgroundColor = "#008aff"
+colorthing.style.backgroundColor = "initial"
+} else if (experiment3 == 2) {
+experiment3 = 1
+check3.style.backgroundColor = "#f3f3f3"
+colorthing.style.backgroundColor = "#ade4ff"
+}
+}
+
 function disabled() {
 console.log("disabled")
 }
@@ -334,6 +362,46 @@ var closeDiv = document.getElementById("experimentalDiv")
 closeDiv.style.display = "none";
 }
 
+function controlOpen() {
+var controlC = document.getElementById("controlCenter")
+var controlB = document.getElementById("musicTile")
+var controlA = document.getElementById("websites")
+var controlD = document.getElementById("timeButton")
+controlC.style.width = "34%"
+controlB.style.display = "block"
+controlA.style.display = "block"
+controlD.style.display = "block"
+controlC.style.height = "54vh"
+controlC.style.borderRadius = "10px"
+controlC.style.backgroundColor = "#7DCBFF"
+}
+
+function closeCenter() {
+  setTimeout(function() {
+    try {
+      var controlC = document.getElementById("controlCenter");
+      var controlB = document.getElementById("musicTile");
+      var controlA = document.getElementById("websites");
+      var controlD = document.getElementById("timeButton");
+
+      controlC.style.width = "10%";
+      controlB.style.display = "none";
+      controlA.style.display = "none";
+      controlD.style.display = "none";
+      controlC.style.height = "2vh";
+      controlC.style.borderRadius = "1000px";
+      controlC.style.backgroundColor = "#ade4ff";
+
+      
+      console.log("closeCenter function executed successfully");
+    } catch (error) {
+      console.error("An error occurred in the closeCenter function:", error);
+    }
+  }, 1);
+}
+
+
 setInterval(updateTime, 60);
+setInterval(updateTime2, 60);
 updateTime();
 setInterval(mainTitle, 1000)
