@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<center><div id="extraOptions" onclick="openMenu()"><p class"hamburgerMenu">☰</p></div><div id="menu"><div class="extraOptionsContainer"><button onclick="downloadtxt()" class="menuItemButton">Download</button>
+<button onclick="importTxtFile()" class="menuItemButton">Import</button></div>
+<br>
+<button onclick="closeMenu()" class="closeButton">Close</button><p class="versionInfo">App Version 0.1 Alpha<br>
+Development V 0.5 S</p></div>
+<button id="boldButton"><p id="pChanger">Bold</p></button><button id="italicButton"><p id="pChanger">Italic</p></button><button id="highlightButton"><p id="pChanger">Highlight</p></button><div></div>
+<div id="mainDiv" contenteditable></div></center>
+<script src="main.js"></script>
+<script>
+function downloadtxt() {
+    const editableDivs = document.getElementById("mainDiv");
+    const htmlContent = editableDivs.innerHTML
+    const blob = new Blob([htmlContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = document.getElementById("inputTitle").value + '.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+async function importTxtFile() {
+  // Create a hidden file input element
+  const input = document.createElement('input');
+  input.type = 'file';
+input.id = "fileInput"
+  input.accept = '.txt, .png, .jpg, .jpeg, .gif, .mp4, .mov, .avi, .mp3, .ogg, .wav'; // Accept various file types
+  input.style.display = 'none'; 
+  document.body.appendChild(input);
+  // Trigger the file selection dialog
+  input.click(); 
+
+  // Wait for the user to select a file
+  const file = await new Promise((resolve, reject) => {
+    input.onchange = () => resolve(input.files[0]);
+  });
+
+  // Get the reference to the 'mainDiv' element
+  const mainDiv = document.getElementById('mainDiv');
+
+  // Handle the selected file based on its type
+  if (file.type.startsWith('text/')) {
+    // Process Text Files
+    const content = await file.text();
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(content, 'text/html');
+alert("REMEMBER! as much as scripts are meant to be images, videos etc. please look at scripts that are txt's and other files as they could run scripts")
+
+    const contentDiv = document.createElement('div');
+    contentDiv.innerHTML = xmlDoc.body.innerHTML;
+
+    mainDiv.innerHTML = ''; // Clear any existing content in mainDiv
+    mainDiv.appendChild(contentDiv); 
+
+  } else if (file.type.startsWith('image/')) {
+    // Process Image Files
+    const image = document.createElement('img');
+    image.src = URL.createObjectURL(file);
+    mainDiv.innerHTML = ''; // Clear any existing content in mainDiv
+    mainDiv.appendChild(image);
+alert("REMEMBER! as much as scripts are meant to be images, videos etc. please look at scripts that are txt's and other files as they could run scripts")
+
+  } else if (file.type.startsWith('video/')) {
+    // Process Video Files
+    const video = document.createElement('video');
+    video.src = URL.createObjectURL(file);
+    video.controls = true; 
+    mainDiv.innerHTML = ''; // Clear any existing content in mainDiv
+    mainDiv.appendChild(video);
+alert("REMEMBER! as much as scripts are meant to be images, videos etc. please look at scripts that are txt's and other files as they could run scripts")
+
+  } else if (file.type.startsWith('audio/')) {
+    // Process Video Files
+    const audio = document.createElement('audio');
+    audio.src = URL.createObjectURL(file);
+    audio.controls = true; 
+    soundDiv = document.createElement("div")
+    soundDiv.className = "soundDiv"
+    audio.className = "audioBar"
+    mainDiv.innerHTML = ''; 
+    soundDiv.appendChild(audio);
+    mainDiv.appendChild(soundDiv);
+alert("REMEMBER! as much as scripts are meant to be images, videos etc. please look at scripts that are txt's and other files as they could run scripts")
+  } else {
+  setTimeout(() => {
+    mainDiv.innerHTML = "";
+}, 20);   
+ mainDiv.innerHTML = "Sorry, this file type isn't supported as it can pose security concerns such as injections"
+
+  }
+}
+</script>
+</body>
