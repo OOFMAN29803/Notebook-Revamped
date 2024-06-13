@@ -2,6 +2,10 @@
 ---
 
 ## Notebook Revamped is a feature-rich notebook application that allows you to efficiently manage and style your notes with various formatting options.
+---
+# This project isn't finished nor in a full release yet: Any bugs or feature requests are always helpful and welcome.
+
+Current version: Pre Release 1
 
 ### Features:
 ---
@@ -18,4 +22,6 @@
 
 
 This is now owned under the StraitUp Team - Notebook Branch
+
 We are always looking for people to help out: https://forms.gle/85B4FpbUNBcNrY5E6
+
