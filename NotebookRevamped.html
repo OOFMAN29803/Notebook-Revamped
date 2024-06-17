@@ -3,14 +3,17 @@
 <head>
 <link rel="stylesheet" type="text/css" href="styles.css"></link>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@2"></script>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <meta charset="UTF-8">
 <title>Untitled Notebook - Notebook Revamped</title>
 </head>
 <body>
 <div id="allContainer">
 
-<div id="topBarTopTop"><input id="inputTitle" placeholder="Document Name..." maxlength=20></input><button id="AIimportButton" style="display: none;" onclick="AIopenMenu()"><p class="wordAI">✨</p></button><button onclick="openCustom()" id="buttonThat">✏️</button></div>
+<div id="topBarTopTop"><input id="inputTitle" placeholder="Document Name..." maxlength=20></input><button id="AIimportButton" onclick="AIopenMenu()"><p class="wordAI">✨</p></button><button onclick="openCustom()" id="buttonThat">✏️</button></div>
 
 <center><div id="customization"><input oninput="vividspectrumrandomize()" id="inputColorDesign" maxlength="6"></input>
 <br>
@@ -25,18 +28,21 @@
 <center><div id="topBanner"><button id="boldButton">Bold</button><button id="underlineButton">Underline</button><button id="highlightButton">Highlight</button><button id="italicButton">Italic</button><button id="downloadButton" onclick="downloadtxt()">Download</button><button id="importButton" onclick="importTxtFile()">Import</button><button id="iFrameButton">iFrame</button><button id="codeBlockButton">Codeblock</button><button id="clearButton" onclick="clearButton()">Clear</button></div></center>
 
 <center><div contenteditable id="mainDiv"></div></center>
-<div id="mainAIDiv"><input text="text" id="inputText"> <button id="generateButton" onclick="generateSentence()">Generate Sentence</button></input><br><p id="outputText"></p><br><button id="mainAIcloseDiv" onclick="AIcloseMenu()">Close</button></div>
+<div id="mainAIDiv"><input text="text" id="inputText"><button id="generateButton">Generate Sentence</button>
+</input><br><p id="outputText">We NEED YOU for our StraitUp AI team,also now we do have an ALPHA ALPHA PRE ALPHA demo of the SoloconLM, it kinda sucks but its all good. https://huggingface.co/spaces/OOFMAN29803/SoloconLM_50M</p><br><button id="mainAIcloseDiv" onclick="AIcloseMenu()">Close</button></div>
 
 <center><div id="experimentalDiv"><p class="exTi">Experimental (Beta)</p> 
 <div class="divContainerExperiment"><p class="previewEx">Remove Top Banner background<br><small>Only available without personalisation</small></p><div id="check1" class="experimentButton" onclick="experimentTopBar()"></div></div>
 
 <div class="divContainerExperiment"><p class="previewEx">Disable RealVibrancy Colour Algorithm<br><small>Creates weird margin and button bugs</small></p><div id="check2" class="experimentButton" onclick="experimentDisableColor()"></div></div>
 
-<div class="divContainerExperiment"><p class="previewEx">Disable Top Title Bar</p><div id="check3" class="experimentButton" onclick="experimentDisableTitleBar()"></div><button id="buttonCloseEx" onclick="closeEx()">Close</button></div>
+<div class="divContainerExperiment"><p class="previewEx">Disable Top Title Bar</p><div id="check3" class="experimentButton" onclick="experimentDisableTitleBar()"></div></div>
+
+<div class="divContainerExperiment"><p class="previewEx">Disable Control Panel</p><div id="check4" class="experimentButton" onclick="experimentDisableControlPanel()"></div></div><button id="buttonCloseEx" onclick="closeEx()">Close</button>
 </div>
 
 <div id="controlCenter" onclick="controlOpen()">
-  <div id="musicTile"><p style="font-size: 40px;">(Music Player)<br>Coming Soon</p></div>
+  <div id="musicTile"><p style="font-size: 30px;">(Music Player)<br>Coming Soon</p></div>
   <div id="websites">
     <div class="close" onclick="closeCenter()">X</div>
 <br>
@@ -53,6 +59,7 @@
 <center><div id="inactive" onclick="dissappear()"><p id="timeAmbience2" class="timeAmbience">00<br>00</p></div></center>
 <script src="mainCode.js"></script>
 <script>
+
 function downloadtxt() {
     const editableDivs = document.getElementById("mainDiv");
     const htmlContent = editableDivs.innerHTML
@@ -125,7 +132,7 @@ function textWhite() {
   allbuttons.forEach(button => {
     button.style.color = "white";
   });
-}
+}     
 
 function textBlack() {
   var allbuttons = document.querySelectorAll("button");
@@ -133,7 +140,26 @@ function textBlack() {
     button.style.color = "black";
   });
 }
-setInterval(color, 100)
+
+function getPrediction() {
+            const inputText = document.getElementById("inputText").value;
+
+            axios.get('run_prediction.php', {
+                params: {
+                    text: inputText
+                }
+            })
+            .then(response => {
+                const output = response.data.output;
+                document.getElementById("outputText").innerText = output;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById("outputText").innerText = "An error occurred while fetching the prediction.";
+            });
+        }
+
+setInterval(color, 1000)
 </script>
 </body>
 </html>

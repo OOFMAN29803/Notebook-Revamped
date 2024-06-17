@@ -37,8 +37,6 @@ overflow: auto;
 
 #mainDiv:focus {
 background-color: #ffffff;
-width: 73%;
-height: 620px;
 border-radius: 20px;
 padding: 10px;
 font-family: "Plus Jakarta Sans", sans-serif;
@@ -56,11 +54,13 @@ margin-top: 20px;
 transition: 0.2s ease;
 width: 8%;
 height: 40px;
+font-weight: 600;
 border-radius: 5px;
 margin-left: 20px;
 border: none;
 background-color: #6ECAFF;
 overflow: hidden;
+user-select: none;
 }
 
 button:hover {
@@ -89,11 +89,11 @@ background: linear-gradient(270deg, #59FFF9, #B5D8FF);
 
 
 #boldButton {
-font-weight: 700;
+font-weight: 900;
 }
 
 .boldText {
-font-weight: 700;
+font-weight: 900;
 }
 
 .underlineText {
@@ -115,7 +115,7 @@ font-style: normal;
 font-weight: 700;
 font-size: 20px;
 height: 30px;
-width: 90%;
+width: 70%;
 transition: 0.3s ease;
 padding: 3px;
 border-radius: 5px;
@@ -124,8 +124,7 @@ outline: none;
 border: none;
 }
 #inputTitle:focus {
-width: 91%;
-height: 32px;
+width: 71%;
 color: black;
 background-color: #8CB6FF;
 }
@@ -199,6 +198,7 @@ display: flex;
  justify-content: center;
 align-items: center; 
 margin-left: 20px;
+margin-top: 0px;
 animation: ease 0.3s;
 }
 
@@ -253,8 +253,8 @@ right: 3%;
 background-color: #00008B;
 padding: 20px;
 border-radius: 20px;
-display: none;
 transition: 0.3s ease;
+display: none;
 }
 
 #sentenceInput {
@@ -537,6 +537,7 @@ border-radius: 10px;
 background-color: #2BB8FF;
 padding: 2px;
 margin-bottom: 10px;
+overflow: hidden;
 }
 
 .previewEx {
@@ -556,13 +557,13 @@ margin-right: auto;
 
 #topBarTopTop {
 background-color: #ADE4FF;
-width: 50%;
 height: 7vh;
  justify-content: center;
 align-items: center;
 padding: 3px;
 border-radius: 5px;
 overflow: auto;
+max-width: 55%;
 }
 
 
@@ -581,7 +582,7 @@ padding: 5px;
 
 #musicTile {
 width: 49%;
-height: 27vh;
+height: 27.8vh;
 background-color: #008aff;
 float: left;
 border-radius: 10px;
@@ -654,4 +655,11 @@ border-radius: 10px;
 margin-top: 20px;
 font-weight: 800;
 user-select: none;
+}
+
+#outputText {
+color: white;
+font-size: 14px;
+word-wrap: wrap;
+font-weight: 600;
 }

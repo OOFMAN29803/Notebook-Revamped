@@ -3,6 +3,7 @@ var inactivityThreshold = 600000;
 var experiment1 = 1;
 var experiment2 = 1;
 var experiment3 = 1;
+var experiment4 = 1;
 var controlopened = 1;
 
 document.getElementById('boldButton').addEventListener('click', function () {
@@ -214,7 +215,7 @@ aiButton.style.background = "linear-gradient(90deg, #00008B, #FFC0CB)";
 mainDiv = document.getElementById("mainDiv")
 mainDiv.style.width = "50%"
 mainDiv.style.marginRight = "250px"
-
+mainDiv.style.height = "66vh"
 }
 
 function AIcloseMenu() {
@@ -225,6 +226,7 @@ mainDiv.style.width = "70%"
 mainDiv.style.marginRight = "0px"
 aiButton = document.getElementById("AIimportButton")
 aiButton.style.background = "#7070FF";
+mainDiv.style.height = "66vh"
 }
 
 function downloadtxt() {
@@ -353,6 +355,21 @@ check3.style.backgroundColor = "#f3f3f3"
 colorthing.style.backgroundColor = "#ade4ff"
 }
 }
+
+function experimentDisableControlPanel() {
+var check4 = document.getElementById("check4")
+var controlPanel = document.getElementById("controlCenter")
+if (experiment4 == 1) {
+experiment4 = 2
+check4.style.backgroundColor = "#008aff"
+controlPanel.style.display = "none"
+} else if (experiment4 == 2) {
+experiment4 = 1
+check4.style.backgroundColor = "#f3f3f3"
+controlPanel.style.display = "block"
+}
+}
+
 
 function disabled() {
 console.log("disabled")
