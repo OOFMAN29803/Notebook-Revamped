@@ -5,7 +5,7 @@
 ---
 # This project isn't finished nor in a full release yet: Any bugs or feature requests are always helpful and welcome.
 
-Current version: Pre Release 1
+Current version: Pre Release 2
 
 ### Features:
 ---
