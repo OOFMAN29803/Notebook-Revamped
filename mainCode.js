@@ -5,6 +5,82 @@ var experiment2 = 1;
 var experiment3 = 1;
 var experiment4 = 1;
 var controlopened = 1;
+var modifiedHexValueAll1 = "000000";
+var modifiedHexValueAll2 = "000000";
+var modifiedHexValueAll3 = "000000";
+var modifiedHexValueAll4 = "000000";
+var modifiedHexValueAll5 = "000000";
+var buttonhovers = "#000000";
+var controlColor = "#ade4ff"
+
+function modifyDecimal(value, modifier) {
+  var result = (value + modifier) % 256;
+  if (result < 0) {
+    result += 256;
+  }
+  return result;
+}
+
+function vividspectrumrandomize() {
+  var inputHex = document.getElementById("inputColorDesign").value;
+  if (/^[0-9A-Fa-f]{6}$/.test(inputHex)) {
+    var originalFirst4Digits = inputHex.slice(0, 4);
+    var last2Digits = inputHex.slice(4);
+    var colors = modifyColors(originalFirst4Digits, parseInt(last2Digits, 16));
+    updateUI(colors);
+  } else {
+    console.log("Invalid Hexadecimal Input entered: " + inputHex);
+  }
+}
+
+function modifyColors(first4Digits, decimalValue) {
+  const modifications = [-150, -70, -30, -10, 30];
+  return modifications.map(mod => {
+    const newDecimalValue = Math.min(Math.max(decimalValue + mod, 0), 255); // Ensures the value is between 0 and 255
+    return "#" + first4Digits + newDecimalValue.toString(16).toUpperCase().padStart(2, '0');
+var topbar = document.getElementById("topBanner")
+var topbarbar = document.getElementById("topBarTopTop")
+topbarbar.style.display = "block"
+topbar.style.display = "block"
+var check1 = document.getElementById("check1")
+experiment1 = 2;
+var check2 = document.getElementById("check2")
+experiment1 = 2;
+  });
+}
+
+function updateUI(colors) {
+  var body = document.body;
+  var smallP = document.getElementById("smallText")
+  var smallP2 = document.getElementById("smallText2")
+  var button1 = document.getElementById("check1")
+  var button3 = document.getElementById("check3")
+  smallP.textContent = "Unavailable, personalization used"
+  smallP2.textContent = "Unavailable, personalization used"
+  button1.disabled = true
+  button1.style.backgroundColor = "#FF7D7D"
+  button1.onclick = console.log('disabled')
+  button3.disabled = true
+  button3.style.backgroundColor = "#FF7D7D"
+  button3.onclick = console.log('disabled')
+  var toptopbar = document.getElementById("topBarTopTop")
+  var sidemenu = document.getElementById("topBanner");
+  var allbuttons = document.querySelectorAll("button");
+  var controlCenter = document.getElementById("controlCenter")
+  sidemenu.style.backgroundColor = colors[0];
+  body.style.background = colors[2];
+  controlColor = colors[1]
+  controlCenter.style.backgroundColor = controlColor
+  toptopbar.style.backgroundColor = colors[0];
+
+
+  // Iterate over each button and set its background color
+  allbuttons.forEach(button => {
+    button.style.backgroundColor = colors[4];
+    console.log(colors[4])
+  });
+}
+
 
 document.getElementById('boldButton').addEventListener('click', function () {
   const contentDiv = document.getElementById('mainDiv');
@@ -30,7 +106,7 @@ document.getElementById('iFrameButton').addEventListener('click', function () {
   if (selectedText !== '') {
     const span = document.createElement('iframe');
     span.className = 'iframe';
-    span.src = selectedText;
+span.src = 'data:text/html;charset=utf-8,' + encodeURI(selectedText);
 
     range.deleteContents();
     range.insertNode(span);
@@ -69,26 +145,7 @@ document.getElementById('highlightButton').addEventListener('click', function ()
   }
 });
 
-document.getElementById('codeBlockButton').addEventListener('click', function () {
-  const contentDiv = document.getElementById('textarea');
-  const selection = window.getSelection();
-  const range = selection.getRangeAt(0);
-  const selectedText = range.toString();
 
-if (selectedText !== '') {
-    const spanDiv = document.createElement('div');
-    const span = document.createElement('code');
-    span.className = 'codeBlock';
-    span.textContent = selectedText;
-    spanDiv.className = 'spanDiv';
-
-    spanDiv.appendChild(span);
-
-    range.deleteContents();
-    range.insertNode(spanDiv);
-}
-
-});
 document.getElementById('italicButton').addEventListener('click', function () {
   const contentDiv = document.getElementById('textarea');
   const selection = window.getSelection();
@@ -407,7 +464,7 @@ function closeCenter() {
       controlD.style.display = "none";
       controlC.style.height = "2vh";
       controlC.style.borderRadius = "1000px";
-      controlC.style.backgroundColor = "#ade4ff";
+      controlC.style.backgroundColor = controlColor;
 
       
       console.log("closeCenter function executed successfully");
