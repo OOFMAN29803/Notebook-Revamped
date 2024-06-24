@@ -3,9 +3,11 @@
 
 ## Notebook Revamped is a feature-rich notebook application that allows you to efficiently manage and style your notes with various formatting options.
 ---
-# This project isn't finished nor in a full release yet: Any bugs or feature requests are always helpful and welcome.
+## This project isn't finished nor in a full release yet: Any bugs or feature requests are always helpful and welcome.
 
-Current version: Pre Release 2
+### Release Date 8th July
+
+Current version: Pre Release 3
 
 ### Features:
 ---
