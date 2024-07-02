@@ -4,6 +4,7 @@ var experiment1 = 1;
 var experiment2 = 1;
 var experiment3 = 1;
 var experiment4 = 1;
+var experiment5 = 1;
 var controlopened = 1;
 var modifiedHexValueAll1 = "000000";
 var modifiedHexValueAll2 = "000000";
@@ -12,6 +13,7 @@ var modifiedHexValueAll4 = "000000";
 var modifiedHexValueAll5 = "000000";
 var buttonhovers = "#000000";
 var controlColor = "#ade4ff"
+var mainDivWidth = "70%";
 
 function modifyDecimal(value, modifier) {
   var result = (value + modifier) % 256;
@@ -63,6 +65,7 @@ function updateUI(colors) {
   button3.disabled = true
   button3.style.backgroundColor = "#FF7D7D"
   button3.onclick = console.log('disabled')
+var mainDiv = document.getElementById("mainDiv")
   var toptopbar = document.getElementById("topBarTopTop")
   var sidemenu = document.getElementById("topBanner");
   var allbuttons = document.querySelectorAll("button");
@@ -72,14 +75,12 @@ function updateUI(colors) {
   controlColor = colors[1]
   controlCenter.style.backgroundColor = controlColor
   toptopbar.style.backgroundColor = colors[0];
-
-
-  // Iterate over each button and set its background color
   allbuttons.forEach(button => {
     button.style.backgroundColor = colors[4];
     console.log(colors[4])
   });
 }
+
 
 
 document.getElementById('boldButton').addEventListener('click', function () {
@@ -192,14 +193,12 @@ alert("REMEMBER! as much as scripts are meant to be images, videos etc. please l
     const contentDiv = document.createElement('div');
     contentDiv.innerHTML = xmlDoc.body.innerHTML;
 
-    mainDiv.innerHTML = ''; // Clear any existing content in mainDiv
     mainDiv.appendChild(contentDiv); 
 
   } else if (file.type.startsWith('image/')) {
     // Process Image Files
     const image = document.createElement('img');
     image.src = URL.createObjectURL(file);
-    mainDiv.innerHTML = ''; // Clear any existing content in mainDiv
     mainDiv.appendChild(image);
 alert("REMEMBER! as much as scripts are meant to be images, videos etc. please look at scripts that are txt's and other files as they could run scripts")
 
@@ -208,7 +207,6 @@ alert("REMEMBER! as much as scripts are meant to be images, videos etc. please l
     const video = document.createElement('video');
     video.src = URL.createObjectURL(file);
     video.controls = true; 
-    mainDiv.innerHTML = ''; // Clear any existing content in mainDiv
     mainDiv.appendChild(video);
 alert("REMEMBER! as much as scripts are meant to be images, videos etc. please look at scripts that are txt's and other files as they could run scripts")
 
@@ -220,7 +218,6 @@ alert("REMEMBER! as much as scripts are meant to be images, videos etc. please l
     soundDiv = document.createElement("div")
     soundDiv.className = "soundDiv"
     audio.className = "audioBar"
-    mainDiv.innerHTML = ''; 
     soundDiv.appendChild(audio);
     mainDiv.appendChild(soundDiv);
 alert("REMEMBER! as much as scripts are meant to be images, videos etc. please look at scripts that are txt's and other files as they could run scripts")
@@ -279,7 +276,7 @@ function AIcloseMenu() {
 aiMenu = document.getElementById("mainAIDiv")
 aiMenu.style.display = "none"
 mainDiv = document.getElementById("mainDiv")
-mainDiv.style.width = "70%"
+mainDiv.style.width = mainDivWidth
 mainDiv.style.marginRight = "0px"
 aiButton = document.getElementById("AIimportButton")
 aiButton.style.background = "#7070FF";
@@ -309,9 +306,9 @@ function resetTimer() {
 }
 
 function onInactive() {
-everything = document.getElementById('allContainer')
+var everything = document.getElementById('allContainer')
 everything.style.display = "none"
-inactiveDiv = document.getElementById("inactive")
+var inactiveDiv = document.getElementById("inactive")
 inactiveDiv.style.display = "block"
 }
 function dissappear() {
@@ -351,18 +348,23 @@ function updateTime2() {
 
 function openCustom() {
 custom = document.getElementById("customization")
-custom.style.display = "block"
+custom.style.width = "60%"
+custom.style.height = "70vh"
 }
 
 function closeCustom() {
 custom = document.getElementById("customization")
-custom.style.display = "none"
+custom.style.width = "0%"
+custom.style.height = "0vh"
 }
 
 document.addEventListener('keydown', function(event) {
     if (event.ctrlKey && event.key === '0') {
 	custom2 = document.getElementById("experimentalDiv")
-	custom2.style.display = "block"
+	custom2.style.width = "30%"
+        custom2.style.padding = "5px"
+        custom2.style.height = "90vh"
+
     }
 });
 
@@ -413,6 +415,45 @@ colorthing.style.backgroundColor = "#ade4ff"
 }
 }
 
+function experimentTabletTouchMode() {
+var check5 = document.getElementById("check5")
+var topBanner = document.getElementById("topBanner")
+var topTopBanner = document.getElementById("topBarTopTop")
+var mainDiv = document.getElementById("mainDiv")
+var allbuttons = document.querySelectorAll("button");
+if (experiment5 == 1) {
+experiment5 = 2
+mainDivWidth = "99%";
+
+
+  allbuttons.forEach(button => {
+    button.style.height = "60px";
+    button.style.width = "11%";
+    button.style.marginTop = "15px"
+  });
+
+topBanner.style.width = "100%";
+mainDiv.style.width = mainDivWidth;
+topBanner.style.height = "150px;";
+check5.style.backgroundColor = "#008aff"
+} else if (experiment5 == 2) {
+experiment5 = 1
+check5.style.backgroundColor = "#f3f3f3"
+mainDivWidth = "70%";
+
+
+  allbuttons.forEach(button => {
+    button.style.height = "40px";
+    button.style.width = "9%";
+    button.style.marginTop = "20px";
+  });
+
+topBanner.style.width = "90%";
+mainDiv.style.width = mainDivWidth;
+topBanner.style.height = "90px;";
+}
+}
+
 function experimentDisableControlPanel() {
 var check4 = document.getElementById("check4")
 var controlPanel = document.getElementById("controlCenter")
@@ -433,7 +474,9 @@ console.log("disabled")
 }
 function closeEx() {
 var closeDiv = document.getElementById("experimentalDiv")
-closeDiv.style.display = "none";
+closeDiv.style.width = "0%";
+closeDiv.style.height = "0px"
+closeDiv.style.padding = "0px";
 }
 
 function controlOpen() {
@@ -473,9 +516,7 @@ function closeCenter() {
     }
   }, 1);
 }
-
-
 setInterval(updateTime, 60);
 setInterval(updateTime2, 60);
 updateTime();
-setInterval(mainTitle, 1000)
+setInterval(mainTitle, 1000);

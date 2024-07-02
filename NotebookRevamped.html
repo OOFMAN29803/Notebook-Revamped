@@ -38,9 +38,12 @@
 
 <div class="divContainerExperiment"><p class="previewEx">Disable Top Title Bar<br><small id="smallText2">Only available without personalisation</small></p><div id="check3" class="experimentButton" onclick="experimentDisableTitleBar()"></div></div>
 
-<div class="divContainerExperiment"><p class="previewEx">Disable Control Panel</p><div id="check4" class="experimentButton" onclick="experimentDisableControlPanel()"></div></div><button id="buttonCloseEx" onclick="closeEx()">Close</button>
-</div>
+<div class="divContainerExperiment"><p class="previewEx">Disable Control Panel</p><div id="check4" class="experimentButton" onclick="experimentDisableControlPanel()"></div></div>
 
+<div class="divContainerExperiment"><p class="previewEx">%TABLET%<br><small id="smallText3">Developer Mode Only. Do NOT release to public.</small></p><div id="check5" class="experimentButton" onclick="experimentTabletTouchMode()"></div></div><button id="buttonCloseEx" onclick="closeEx()">Close</button>
+</div>
+</div>
+<center>
 <div id="controlCenter" onclick="controlOpen()">
   <div id="musicTile"><p style="font-size: 30px;">(Music Player)<br>Coming Soon</p></div>
   <div id="websites">
@@ -56,10 +59,10 @@
   </div>
 </div>
 </div>
+</center>
 <center><div id="inactive" onclick="dissappear()"><p id="timeAmbience2" class="timeAmbience">00<br>00</p></div></center>
 <script src="mainCode.js"></script>
 <script>
-
 
 function downloadtxt() {
     const editableDivs = document.getElementById("mainDiv");
