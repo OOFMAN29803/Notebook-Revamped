@@ -1,19 +1,19 @@
 # Notebook Revamped
----
+
 
 ## Notebook Revamped is a feature-rich notebook application that allows you to efficiently manage and style your notes with various formatting options.
----
-## This project isn't finished nor in a full release yet: Any bugs or feature requests are always helpful and welcome.
+
+### This project isn't finished nor in a full release yet: Any bugs or feature requests are always helpful and welcome.
 
 ### Release Date 8th July
 
-Current version: Pre Release 3
+Current version: Pre Release 4
 
 ### Features:
----
 - Download Notes: Easily download your notes for offline access.
 - Import Notes: Import notes from external files to keep everything in one place.
----
+
+
 ### Text Formatting:
 - Italic: Italicize your text for emphasis.
 - Bold: Make important text stand out.
@@ -27,3 +27,23 @@ This is now owned under the StraitUp Team - Notebook Branch
 
 We are always looking for people to help out: https://forms.gle/85B4FpbUNBcNrY5E6
 
+## Roadmap
+
+## Version 1
+Most features are complete however 1.0.1 versions will exist.
+- Tablet Mode.
+
+### Version 1.1 (September)
+- Mass Design Changes.
+- Proper AI Intergration.
+- Expanding on Function over form.
+- Hot Patching or Updating
+
+### Version 1.2 (December)
+- Accounts
+- Online Syncing to the StraitUp Workforce Account
+
+### Version 1.3 (February)
+- Design Changes
+
+### Versions ahead include many unknown things and will be worked out soon
