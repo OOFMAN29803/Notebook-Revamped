@@ -484,12 +484,12 @@ var controlC = document.getElementById("controlCenter")
 var controlB = document.getElementById("musicTile")
 var controlA = document.getElementById("websites")
 var controlD = document.getElementById("timeButton")
+controlC.style.borderRadius = "10px"
 controlC.style.width = "34%"
 controlB.style.display = "block"
 controlA.style.display = "block"
 controlD.style.display = "block"
 controlC.style.height = "54vh"
-controlC.style.borderRadius = "10px"
 controlC.style.backgroundColor = "#7DCBFF"
 }
 
@@ -501,12 +501,12 @@ function closeCenter() {
       var controlA = document.getElementById("websites");
       var controlD = document.getElementById("timeButton");
 
+      controlC.style.borderRadius = "1000px";
       controlC.style.width = "10%";
       controlB.style.display = "none";
       controlA.style.display = "none";
       controlD.style.display = "none";
       controlC.style.height = "2vh";
-      controlC.style.borderRadius = "1000px";
       controlC.style.backgroundColor = controlColor;
 
       
@@ -516,6 +516,32 @@ function closeCenter() {
     }
   }, 1);
 }
+
+function autoDarkVariable() {
+    const currentTime = new Date();
+    const hours = currentTime.getHours();
+
+    if (hours >= 17 || hours < 7) { 
+        autoDark();
+    } else {
+        console.log("dayTime");
+    }
+}
+
+
+function autoDark() {
+var mainDiv = document.getElementById("mainDiv")
+var body = document.body
+var topBar = document.getElementById("topBanner")
+var fullTopBar = document.getElementById("topBarTopTop")
+fullTopBar.style.backgroundColor = "#89B4C9"
+topBar.style.backgroundColor = "#89B4C9"
+body.style.backgroundColor = "#869FA3"
+mainDiv.style.backgroundColor = "#8FA9AD"
+}
+
+autoDarkVariable();
+
 setInterval(updateTime, 60);
 setInterval(updateTime2, 60);
 updateTime();
