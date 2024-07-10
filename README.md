@@ -5,9 +5,9 @@
 
 ### This project isn't finished nor in a full release yet: Any bugs or feature requests are always helpful and welcome.
 
-### Release Date 8th July
+# RElEASED 
 
-Current version: Pre Release 4
+Current version: V1.0
 
 ### Features:
 - Download Notes: Easily download your notes for offline access.
@@ -30,7 +30,6 @@ We are always looking for people to help out: https://forms.gle/85B4FpbUNBcNrY5E
 ## Roadmap
 
 ## Version 1
-Most features are complete however 1.0.1 versions will exist.
 - Tablet Mode.
 
 ### Version 1.1 (September)
