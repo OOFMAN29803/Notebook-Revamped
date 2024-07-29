@@ -2,15 +2,14 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="styles.css"></link>
-<script src="https://cdn.jsdelivr.net/npm/dompurify@2"></script>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest">
-</script>
+<link rel="icon" href="icon.ico" type="image/x-icon"/>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
 <meta charset="UTF-8">
 <title>Untitled Notebook - Notebook Revamped</title>
+<script src="mainCode.js"></script>
 </head>
 <body>
+<div id="actuallyEverything"></div>
 <div id="allContainer">
 
 <div id="topBarTopTop"><input id="inputTitle" placeholder="Document Name..." maxlength=20></input><button id="AIimportButton" onclick="AIopenMenu()"><p class="wordAI">✨</p></button><button onclick="openCustom()" id="buttonThat">✏️</button></div>
@@ -25,11 +24,18 @@
 </div></center>
 <br>
 
-<center><div id="topBanner"><button id="boldButton">Bold</button><button id="underlineButton">Underline</button><button id="highlightButton">Highlight</button><button id="italicButton">Italic</button><button id="downloadButton" onclick="downloadtxt()">Download</button><button id="importButton" onclick="importTxtFile()">Import</button><button id="iFrameButton">iFrame</button><button id="clearButton" onclick="clearButton()">Clear</button></div></center>
+<center><div id="topBanner"><button id="boldButton">Bold</button><button id="underlineButton">Underline</button><button id="highlightButton">Highlight</button><button id="italicButton">Italic</button><button id="downloadButton" onclick="downloadtxt()">Download</button><button id="importButton" onclick="importTxtFile()">Import</button><button id="iFrameButton">iFrame</button><button id="clearButton" onclick="clearButton()">Clear</button><button onclick="openExtrasMenu()" id="smallButton"></button></div>
+<div id="extrasDiv"><input id="sizeInput" maxlength=3></input><button id="sizeButton">✓</button><button style="width: 2.2%; height: 33px; background-color: red; border: none; margin-top: 10px;" onclick="highlight = '#ff0000'"></button><button style="width: 2.2%; height: 33px; background-color: #33FF00; border: none; margin-top: 10px;" onclick="highlight = '#33FF00'"></button><button style="width: 2.2%; height: 33px; background-color: #2693FF; border: none; margin-top: 10px;" onclick="highlight = '#2693FF'"></button></div>
+</center>
 
 <center><div contenteditable id="mainDiv"></div></center>
 <div id="mainAIDiv"><input text="text" id="inputText"><button id="generateButton">Generate Sentence</button>
-</input><br><p id="outputText"></p><br><button id="mainAIcloseDiv" onclick="AIcloseMenu()">Close</button></div>
+</input><br><div class="responses"><p class="responsesP">- Response*</p>
+<br>
+<p id="outputText">Powered By Gemini Nano</p></div><br><button id="mainAIcloseDiv" onclick="AIcloseMenu()">Close</button><p class="disclaimerP">Powered By Gemini Nano</p>
+<br>
+<p><small>Gemini Nano can be inaccurate and is a lightweight model. Check facts and information</small></p>
+</div>
 
 <center><div id="experimentalDiv"><p class="exTi">Experimental (Beta)</p> 
 <div class="divContainerExperiment"><p class="previewEx">Remove Top Banner background<br><small id="smallText">Only available without personalisation</small></p><div id="check1" class="experimentButton" onclick="experimentTopBar()"></div></div>
@@ -38,29 +44,13 @@
 
 <div class="divContainerExperiment"><p class="previewEx">Disable Top Title Bar<br><small id="smallText2">Only available without personalisation</small></p><div id="check3" class="experimentButton" onclick="experimentDisableTitleBar()"></div></div>
 
-<div class="divContainerExperiment"><p class="previewEx">Disable Control Panel</p><div id="check4" class="experimentButton" onclick="experimentDisableControlPanel()"></div></div>
-
-<div class="divContainerExperiment"><p class="previewEx">%TABLET%<br><small id="smallText3">Developer Mode Only. Do NOT release to public.</small></p><div id="check5" class="experimentButton" onclick="experimentTabletTouchMode()"></div></div><button id="buttonCloseEx" onclick="closeEx()">Close</button>
+<div class="divContainerExperiment" style="display: none;"><p class="previewEx">%TABLET%<br><small id="smallText3">Developer Mode Only. Do NOT release to public.</small></p><div id="check5" class="experimentButton" onclick="experimentTabletTouchMode()"></div></div><button id="buttonCloseEx" onclick="closeEx()">Close</button>
 </div>
 </div>
-<center>
-<div id="controlCenter" onclick="controlOpen()">
-  <div id="musicTile"><p style="font-size: 30px;">(Music Player)<br>Coming Soon</p></div>
-  <div id="websites">
-    <div class="close" onclick="closeCenter()">X</div>
-<br>
-<div id="githubLink" onclick="window.location.href = 'https://github.com/OOFMAN29803'"><p class="link">Github Link</p></div>
-<br>
-<div id="AILink" onclick="window.location.href = 'http://silicoai.free.nf'"><p class="link">SoloconAI Link</p></div>
-
-  </div>
-  <div id="timeButton">
-    <p class="timePDiv" id="timeAmbience">00:00</p>
-  </div>
-</div>
-</div>
-</center>
 <center><div id="inactive" onclick="dissappear()"><p id="timeAmbience2" class="timeAmbience">00<br>00</p></div></center>
+<p class="devString">Build v1.1 Beta 1</p> 
+</div>
+</div>
 <script src="mainCode.js"></script>
 <script>
 
@@ -96,24 +86,6 @@ function textBlack() {
     button.style.color = "black";
   });
 }
-
-function getPrediction() {
-            const inputText = document.getElementById("inputText").value;
-
-            axios.get('run_prediction.php', {
-                params: {
-                    text: inputText
-                }
-            })
-            .then(response => {
-                const output = response.data.output;
-                document.getElementById("outputText").innerText = output;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById("outputText").innerText = "An error occurred while fetching the prediction.";
-            });
-        }
 
 setInterval(color, 1000)
 </script>

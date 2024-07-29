@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+ @font-face { font-family: Product Sans; src: url('Product Sans Regular.ttf'); } 
+
 
 body {
 background-color: #D1F9FF;
@@ -9,10 +11,29 @@ font-optical-sizing: auto;
 font-style: normal;
 }
 
+input {
+font-family: "Plus Jakarta Sans", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+font-weight: 700;
+background-color: #DBFFF4;
+font-size: 20px;
+border: 3px solid #C1E0D7;
+transition: 0.3s ease;
+outline: none;
+border-radius: 5px;
+}
+
+input:focus {
+color: #8FA89D;
+background-color: #BFDED4;
+border: 3px solid #ADCCBE;
+}
+
 #mainDiv {
 transition: 0.3s ease;
 width: 70%;
-height: 66vh;
+height: 64vh;
 border-radius: 20px;
 padding: 10px;
 font-family: "Plus Jakarta Sans", sans-serif;
@@ -20,7 +41,8 @@ font-optical-sizing: auto;
 font-style: normal;
 text-align: left;
 overflow: auto;
-background-color: #CBEFF5;
+border: 3px solid #C1E6DC;
+background-color: #D9FFF7;
 outline: none;
 }
 
@@ -28,16 +50,18 @@ outline: none;
 background-color: #ADE4FF;
 width: 90%;
 height: 90px;
-border-radius: 40px;
+border-radius: 20px;
 margin-top: 20px;
-margin-bottom: 40px;
+margin-bottom: 10px;
 transition: 0.2s ease;
 overflow: auto;
+border: 3px solid #93C2D9;
 }
 
 #mainDiv:focus {
 background-color: #ffffff;
 border-radius: 20px;
+border: 3px solid #D8F2ED;
 padding: 10px;
 font-family: "Plus Jakarta Sans", sans-serif;
 font-optical-sizing: auto;
@@ -57,34 +81,16 @@ height: 40px;
 font-weight: 600;
 border-radius: 5px;
 margin-left: 20px;
-border: none;
-background-color: #6ECAFF;
+border: 3px solid #4892BD;
+background-color: #61C5FF;
 overflow: hidden;
 user-select: none;
+font-size: 13px;
 }
 
 button:hover {
-background: linear-gradient(270deg, #59FFF9, #B5D8FF);
-    background-size: 300% 300%;
-    animation: GradientFlow 5s ease infinite;
-}
-
-@-webkit-keyframes GradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@-moz-keyframes GradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes GradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+background-color: #7CB0EB;
+border: 3px solid #577CA6;
 }
 
 
@@ -113,7 +119,9 @@ font-family: "Plus Jakarta Sans", sans-serif;
 font-optical-sizing: auto;
 font-style: normal;
 font-weight: 700;
+background-color: #DBFFF4;
 font-size: 20px;
+border: 3px solid #C1E0D7;
 height: 30px;
 width: 70%;
 transition: 0.3s ease;
@@ -121,12 +129,11 @@ padding: 3px;
 border-radius: 5px;
 color: black;
 outline: none;
-border: none;
 }
 #inputTitle:focus {
-width: 71%;
-color: black;
-background-color: #8CB6FF;
+color: #8FA89D;
+background-color: #BFDED4;
+border: 3px solid #ADCCBE;
 }
 
 .italic {
@@ -192,11 +199,10 @@ resize: none;
 }
 
 #AIimportButton {
-background-color: #7070FF;
 transition: 0.5s ease;
 width: 40px;
 height: 40px;
-border-radius: 999px;
+
 color: white;
 display: flex;
  justify-content: center;
@@ -206,31 +212,6 @@ margin-top: 0px;
 animation: ease 0.3s;
 }
 
-#AIimportButton:hover {
-    background: linear-gradient(270deg, #00008B, #FFC0CB);
-    background-size: 200% 200%;
-    animation: spinAndChange 10s linear infinite, GradientFlow 5s ease infinite;
-}
-
-@-webkit-keyframes GradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@-moz-keyframes GradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes GradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-
 
 #mainAIDiv {
 width: 24%;
@@ -239,7 +220,8 @@ position: fixed;
 top: 22.5%;
 right: 3%;
 overflow: hidden;
-background-color: #00008B;
+background-color: #BE8EE8;
+border: 3px solid #946FB5;
 padding: 20px;
 border-radius: 20px;
 transition: 0.3s ease;
@@ -250,8 +232,10 @@ display: none;
 padding: 5px;
 width: 97%;
 height: 20px;
-border: none;
-border-radius: 10px;
+background-color: #DBFFF4;
+border: 3px solid #C1E0D7;
+
+border-radius: 5px;
 font-family: "Plus Jakarta Sans", sans-serif;
 font-optical-sizing: auto;
 font-style: normal;
@@ -260,33 +244,9 @@ outline: none;
 }
 
 #generateButton {
-width: 35%;
+width: 45%;
 height: 35px;
 margin-right: 20px;
-
-#generateButton:hover {
-    background: linear-gradient(270deg, #FFFFFF, #FFC0CB, CFFFF0, CFC9FF);
-    background-size: 200% 200%;
-    animation: GradientFlow 5s ease infinite;
-}
-
-@-webkit-keyframes GradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@-moz-keyframes GradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes GradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
 }
 
 #responseFromAI {
@@ -297,8 +257,9 @@ font-weight: 700;
 
 #mainAIcloseDiv {
 width: 30%;
-margin-top: 300px;
+margin-top: 10px;
 height: 40px;
+margin-bottom: -10px;
 }
 
 .linkSpace {
@@ -339,7 +300,7 @@ float: left;
 #inputText {
 width: 95%;
 height: 30px;
-border-radius: 15px;
+border-radius: 5px;
 padding: 3px;
 outline: none;
 border: none;
@@ -347,31 +308,17 @@ font-family: "Plus Jakarta Sans", sans-serif;
 font-optical-sizing: auto;
 font-style: normal;
 font-weight: 800;
+background-color: #DBFFF4;
+border: 3px solid #C1E0D7;
+transition: 0.3s ease;
 }
 
 #inputText:focus {
-    background: linear-gradient(270deg, black, #FFC0CB,);
-    background-size: 100% 100%;
-    animation: GradientFlow 2s ease infinite;
+color: #8FA89D;
+background-color: #BFDED4;
+border: 3px solid #ADCCBE;
 }
 
-@-webkit-keyframes GradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@-moz-keyframes GradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes GradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
 
 #inactive {
 display: none;
@@ -398,11 +345,10 @@ user-select: none;
 #buttonThat {
 margin-top: 0px;
 width: 40px;
-border-radius: 200px;
+border-radius: 5px;
 height: 40px;
 margin-left: 20px;
 }
-
 
 #customization {
 position: fixed;
@@ -421,10 +367,23 @@ width: 50%;
 border: none;
 height: 30px;
 padding: 2px;
-border-radius: 10px;
+border-radius: 5px;
 font-size: 17px;
 outline: none;
 margin-top: 200px;
+background-color: #DBFFF4;
+border: 3px solid #C1E0D7;
+transition: 0.3s ease;
+font-family: "Plus Jakarta Sans", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+weight: 600;
+}
+
+#inputColorDesign:focus {
+color: #8FA89D;
+background-color: #BFDED4;
+border: 3px solid #ADCCBE;
 }
 
 #squareColor {
@@ -548,6 +507,7 @@ margin-right: auto;
 #topBarTopTop {
 background-color: #ADE4FF;
 height: 7vh;
+border: 3px solid #93C2D9;
  justify-content: center;
 align-items: center;
 padding: 3px;
@@ -653,15 +613,110 @@ font-weight: 800;
 user-select: none;
 }
 
-#outputText {
-color: white;
-font-size: 14px;
-word-wrap: wrap;
-font-weight: 600;
-}
+
 
 @media (max-width: 480px) {
 #allContainer {
 display: none;
 }
+}
+
+.devString {
+position: fixed;
+bottom: 2%;
+left: 1%;
+}
+
+#ToUcontainer {
+width: 45%;
+height: 65vh;
+position: fixed;
+top: 20%;
+left: 20%;
+border-radius: 20px;
+background-color: #6BE3DF;
+border: 3px solid #58BAB7;
+word-wrap: wrap;
+padding: 30px;
+display: none;
+overflow: auto;
+}
+
+.infobuild {
+width: 40px;
+height: 40px;
+position: fixed;
+bottom: 8%;
+left: 0.5%;
+font-size: 20px;
+background-color: #FFA694;
+border: 3px solid #DB8F7F;
+color: white;
+}
+
+.infobuild:hover {
+background-color: #E09D9D;
+border: 3px solid #C78B8B;
+}
+
+#buttonCloseDev {
+width: 20%;
+}
+
+.responses {
+width: 95%;
+height: 30vh;
+background-color: #BAB0FF;
+border: 3px solid #8F88C4;
+margin-top: 40px;
+border-radius: 10px;
+padding: 5px;
+}
+
+.responsesP {
+color: white;
+font-size: 20px;
+}
+
+#smallButton {
+width: 3%;
+}
+
+#extrasDiv {
+background-color: #ADE4FF;
+width: 90%;
+height: 0px;
+border-radius: 20px;
+margin-top: 5px;
+margin-bottom: 40px;
+transition: 0.2s ease;
+overflow: auto;
+border: none;
+}
+
+#sizeInput {
+margin-top: 10px;
+width: 2.5%;
+float: left;
+margin-left: 10px;
+margin-right: -5px;
+}
+
+#sizeButton {
+width: 2%;
+height: 33px;
+float: left;
+margin-top: 10px;
+}
+
+.disclaimerP {
+font-family: Product Sans, "Plus Jakarta Sans";
+font-size: 30px;
+background: linear-gradient(to right, #4F94E8, #837FD2, #DA6E6F);
+        -webkit-background-clip: text; 
+        color: transparent;
+width: 100%;
+word-wrap: wrap;
+font-weight: 600;
+margin-bottom: -30px;
 }

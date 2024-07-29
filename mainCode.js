@@ -4,16 +4,18 @@ var experiment1 = 1;
 var experiment2 = 1;
 var experiment3 = 1;
 var experiment4 = 1;
-var experiment5 = 1;
-var controlopened = 1;
-var modifiedHexValueAll1 = "000000";
-var modifiedHexValueAll2 = "000000";
-var modifiedHexValueAll3 = "000000";
-var modifiedHexValueAll4 = "000000";
-var modifiedHexValueAll5 = "000000";
-var buttonhovers = "#000000";
-var controlColor = "#ade4ff"
+let experiment5 = 1;
+let controlopened = 1;
+let modifiedHexValueAll1 = "000000";
+let modifiedHexValueAll2 = "000000";
+let modifiedHexValueAll3 = "000000";
+let modifiedHexValueAll4 = "000000";
+let modifiedHexValueAll5 = "000000";
+let buttonhovers = "#000000";
+let controlColor = "#ade4ff"
 var mainDivWidth = "70%";
+let ag632n8gdoa829lk52h682p = '2935'
+let highlight = "#FFFF00"
 
 function modifyDecimal(value, modifier) {
   var result = (value + modifier) % 256;
@@ -70,13 +72,14 @@ var mainDiv = document.getElementById("mainDiv")
   var sidemenu = document.getElementById("topBanner");
   var allbuttons = document.querySelectorAll("button");
   var controlCenter = document.getElementById("controlCenter")
-  sidemenu.style.backgroundColor = colors[0];
+  sidemenu.style.backgroundColor = colors[1];
   body.style.background = colors[2];
   controlColor = colors[1]
   controlCenter.style.backgroundColor = controlColor
   toptopbar.style.backgroundColor = colors[0];
   allbuttons.forEach(button => {
     button.style.backgroundColor = colors[4];
+    button.style.border = "3px solid " + colors[0];
     console.log(colors[4])
   });
 }
@@ -138,7 +141,7 @@ document.getElementById('highlightButton').addEventListener('click', function ()
 
   if (selectedText !== '') {
     const span = document.createElement('span');
-    span.className = 'highlighted';
+    span.style.backgroundColor = highlight
     span.textContent = selectedText;
 
     range.deleteContents();
@@ -156,6 +159,24 @@ document.getElementById('italicButton').addEventListener('click', function () {
   if (selectedText !== '') {
     const span = document.createElement('span');
     span.className = 'italic';
+    span.textContent = selectedText;
+
+    range.deleteContents();
+    range.insertNode(span);
+  }
+});
+
+document.getElementById('sizeButton').addEventListener('click', function () {
+  const contentDiv = document.getElementById('textarea');
+  const selection = window.getSelection();
+  const range = selection.getRangeAt(0);
+  const selectedText = range.toString();
+
+  if (selectedText !== '') {
+    const span = document.createElement('span');
+    span.style.transition = "0.3s ease"
+    var inputy = document.getElementById("sizeInput").value
+    span.style.fontSize = inputy + 'px';
     span.textContent = selectedText;
 
     range.deleteContents();
@@ -244,16 +265,6 @@ document.title = mainInputTitle + " - Notebook Revamped"
 }
 }
 
-function changeBackground() {
-body = document.body
-var input = document.getElementById("urlImage").value
-if (input === "") {
-body.style.backgroundImage = "url(18.jpg)"
-} else {
-body.style.backgroundImage = "url(" + input + ")"
-}
-}
-
 
 function clearButton() {
 div = document.getElementById("mainDiv")
@@ -263,13 +274,11 @@ div.innerHTML = ""
 function AIopenMenu() {
 aiMenu = document.getElementById("mainAIDiv")
 aiMenu.style.display = "block"
-aiButton = document.getElementById("AIimportButton")
-aiButton.style.background = "linear-gradient(90deg, #00008B, #FFC0CB)";
+
 
 mainDiv = document.getElementById("mainDiv")
 mainDiv.style.width = "50%"
 mainDiv.style.marginRight = "250px"
-mainDiv.style.height = "66vh"
 }
 
 function AIcloseMenu() {
@@ -278,9 +287,6 @@ aiMenu.style.display = "none"
 mainDiv = document.getElementById("mainDiv")
 mainDiv.style.width = mainDivWidth
 mainDiv.style.marginRight = "0px"
-aiButton = document.getElementById("AIimportButton")
-aiButton.style.background = "#7070FF";
-mainDiv.style.height = "66vh"
 }
 
 function downloadtxt() {
@@ -364,7 +370,6 @@ document.addEventListener('keydown', function(event) {
 	custom2.style.width = "30%"
         custom2.style.padding = "5px"
         custom2.style.height = "90vh"
-
     }
 });
 
@@ -454,24 +459,7 @@ topBanner.style.height = "90px;";
 }
 }
 
-function experimentDisableControlPanel() {
-var check4 = document.getElementById("check4")
-var controlPanel = document.getElementById("controlCenter")
-if (experiment4 == 1) {
-experiment4 = 2
-check4.style.backgroundColor = "#008aff"
-controlPanel.style.display = "none"
-} else if (experiment4 == 2) {
-experiment4 = 1
-check4.style.backgroundColor = "#f3f3f3"
-controlPanel.style.display = "block"
-}
-}
 
-
-function disabled() {
-console.log("disabled")
-}
 function closeEx() {
 var closeDiv = document.getElementById("experimentalDiv")
 closeDiv.style.width = "0%";
@@ -479,68 +467,67 @@ closeDiv.style.height = "0px"
 closeDiv.style.padding = "0px";
 }
 
-function controlOpen() {
-var controlC = document.getElementById("controlCenter")
-var controlB = document.getElementById("musicTile")
-var controlA = document.getElementById("websites")
-var controlD = document.getElementById("timeButton")
-controlC.style.borderRadius = "10px"
-controlC.style.width = "34%"
-controlB.style.display = "block"
-controlA.style.display = "block"
-controlD.style.display = "block"
-controlC.style.height = "54vh"
-controlC.style.backgroundColor = "#7DCBFF"
-}
-
-function closeCenter() {
-  setTimeout(function() {
-    try {
-      var controlC = document.getElementById("controlCenter");
-      var controlB = document.getElementById("musicTile");
-      var controlA = document.getElementById("websites");
-      var controlD = document.getElementById("timeButton");
-
-      controlC.style.borderRadius = "1000px";
-      controlC.style.width = "10%";
-      controlB.style.display = "none";
-      controlA.style.display = "none";
-      controlD.style.display = "none";
-      controlC.style.height = "2vh";
-      controlC.style.backgroundColor = controlColor;
-
-      
-      console.log("closeCenter function executed successfully");
-    } catch (error) {
-      console.error("An error occurred in the closeCenter function:", error);
-    }
-  }, 1);
-}
-
-function autoDarkVariable() {
-    const currentTime = new Date();
-    const hours = currentTime.getHours();
-
-    if (hours >= 17 || hours < 7) { 
-        autoDark();
-    } else {
-        console.log("dayTime");
-    }
-}
-
-
-function autoDark() {
+function openExtrasMenu() {
+var extrasFunction = document.getElementById("extrasDiv")
 var mainDiv = document.getElementById("mainDiv")
-var body = document.body
-var topBar = document.getElementById("topBanner")
-var fullTopBar = document.getElementById("topBarTopTop")
-fullTopBar.style.backgroundColor = "#89B4C9"
-topBar.style.backgroundColor = "#89B4C9"
-body.style.backgroundColor = "#869FA3"
-mainDiv.style.backgroundColor = "#8FA9AD"
+mainDiv.style.height = "56vh";
+extrasFunction.style.height = "55px";
+extrasFunction.style.border = "3px solid #93C2D9";
+var extraButton = document.getElementById("smallButton")
+extraButton.onclick = closeExtrasMenu;
 }
 
-autoDarkVariable();
+function closeExtrasMenu() {
+var extrasFunction = document.getElementById("extrasDiv")
+var mainDiv = document.getElementById("mainDiv")
+mainDiv.style.height = "64vh";
+extrasFunction.style.height = "0px";
+extrasFunction.style.border = "none";
+var extraButton = document.getElementById("smallButton")
+extraButton.onclick = openExtrasMenu;
+}
+
+function getChromeVersion() {
+    const userAgent = navigator.userAgent;
+    const chromeVersionMatch = userAgent.match(/Chrome\/([0-9.]+)/);
+    return chromeVersionMatch ? chromeVersionMatch[1] : null;
+}
+
+// Function to compare versions
+function isVersionBelow(version, threshold) {
+    const [v1, v2] = [version.split('.').map(Number), threshold.split('.').map(Number)];
+    for (let i = 0; i < Math.max(v1.length, v2.length); i++) {
+        if ((v1[i] || 0) < (v2[i] || 0)) return true;
+        if ((v1[i] || 0) > (v2[i] || 0)) return false;
+    }
+    return false;
+}
+
+// Function to check if Chrome version is below the threshold
+function checkChromeVersion() {
+    const versionThreshold = '117.0.0'; 
+    const chromeVersion = getChromeVersion();
+
+    if (chromeVersion) {
+        if (isVersionBelow(chromeVersion, versionThreshold)) {
+            console.log("%cunsupported", "color: red; font-size: 12px;");
+            var element = document.getElementById("allContainer")
+	    element.style.display = "none"
+        } else {
+            console.log("%cavailable", "color: #3DDFFF; font-size: 12px;");
+        }
+    } else {
+        console.log('?? you could be at risk with outdated software if your version is under {versionThreshold}');
+    }
+}
+
+checkChromeVersion();
+
+function canCreateTextSession() {
+console.log("this function is unavailable right now. This is reserved for Gemini Nano intergration with Notebook Revamped")
+}
+
+
 
 setInterval(updateTime, 60);
 setInterval(updateTime2, 60);
