@@ -7,7 +7,9 @@
 
 # RELEASED 
 
-Current version: V1.0
+Current version: V1.1 Beta 1
+
+*Note: Beta 2 is delayed as some things are getting worked on that took longer than a max 2 week timeframe*
 
 ### Features:
 - Download Notes: Easily download your notes for offline access.
@@ -23,16 +25,13 @@ Current version: V1.0
 - Additional Features: Other useful formatting and note-taking tools.
 
 
-This is now owned under the StraitUp Team - Notebook Branch
+This is now owned under the AllOneTech Team - Notebook Branch
 
 We are always looking for people to help out: https://forms.gle/85B4FpbUNBcNrY5E6
 
 ## Roadmap
 
-## Version 1
-- Tablet Mode.
-
-### Version 1.1 (September)
+### Version 1.1 (September-October)
 - Mass Design Changes.
 - Proper AI Intergration.
 - Expanding on Function over form.
