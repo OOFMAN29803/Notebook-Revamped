@@ -4,9 +4,7 @@
 <link rel="stylesheet" type="text/css" href="styles.css"></link>
 <link rel="icon" href="icon.ico" type="image/x-icon"/>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<meta charset="UTF-8">
 <title>Untitled Notebook - Notebook Revamped</title>
-<script src="mainCode.js"></script>
 </head>
 <body>
 <div id="actuallyEverything"></div>
@@ -16,19 +14,18 @@
 
 <center><div id="customization"><input oninput="vividspectrumrandomize()" id="inputColorDesign" maxlength="6"></input>
 <br>
-<div id="squareColor"></div><button onclick="closeCustom()">Close</button>
+<div id="squareColor"></div><button class="skibidi" onclick="closeCustom()">Close</button>
+<button class="skibidi" onclick="textWhite()">White Text</button><button class="skibidi" onclick="textBlack()">Black Text</button>
 <br>
-<button onclick="textWhite()">White Text</button><button onclick="textBlack()">Black Text</button>
-<br>
-<p style="font-size: 10px; margin-top: 20px;">Algorithms can make non-optimal themes. However you can change them at anytime.</p>
+<p style="font-size: 10px; margin-bottom: -10px;">Algorithms can make non-optimal themes. However you can change them at anytime.</p>
 </div></center>
 <br>
 
 <center><div id="topBanner"><button id="boldButton">Bold</button><button id="underlineButton">Underline</button><button id="highlightButton">Highlight</button><button id="italicButton">Italic</button><button id="downloadButton" onclick="downloadtxt()">Download</button><button id="importButton" onclick="importTxtFile()">Import</button><button id="iFrameButton">iFrame</button><button id="clearButton" onclick="clearButton()">Clear</button><button onclick="openExtrasMenu()" id="smallButton"></button></div>
-<div id="extrasDiv"><input id="sizeInput" maxlength=3></input><button id="sizeButton">✓</button><button style="width: 2.2%; height: 33px; background-color: red; border: none; margin-top: 10px;" onclick="highlight = '#ff0000'"></button><button style="width: 2.2%; height: 33px; background-color: #33FF00; border: none; margin-top: 10px;" onclick="highlight = '#33FF00'"></button><button style="width: 2.2%; height: 33px; background-color: #2693FF; border: none; margin-top: 10px;" onclick="highlight = '#2693FF'"></button></div>
+<div id="extrasDiv"><input id="sizeInput" maxlength=3></input><button id="sizeButton">✓</button><div class="highlightColorsDiv"><button class="highlights" style="background-color: red;" onclick="red()"></button><button class="highlights" style="background-color: #33FF00;" onclick="green()"></button><button class="highlights" style="background-color: #2693FF;" onclick="blue()"></button></div><button onclick="multitasking()" class="multiButton">Multitasking (Beta)</button></div>
 </center>
 
-<center><div contenteditable id="mainDiv"></div></center>
+<center><div contenteditable id="mainDiv0" class="mainDiv"></div></center>
 <div id="mainAIDiv"><input text="text" id="inputText"><button id="generateButton">Generate Sentence</button>
 </input><br><div class="responses"><p class="responsesP">- Response*</p>
 <br>
@@ -47,25 +44,13 @@
 <div class="divContainerExperiment" style="display: none;"><p class="previewEx">%TABLET%<br><small id="smallText3">Developer Mode Only. Do NOT release to public.</small></p><div id="check5" class="experimentButton" onclick="experimentTabletTouchMode()"></div></div><button id="buttonCloseEx" onclick="closeEx()">Close</button>
 </div>
 </div>
-<center><div id="inactive" onclick="dissappear()"><p id="timeAmbience2" class="timeAmbience">00<br>00</p></div></center>
-<p class="devString">Build v1.1 Beta 1</p> 
+<center><div id="inactive" onclick="dissappear()"><p id="timeAmbience" class="timeAmbience">00<br>00</p></div></center>
+<p class="devString">Build v1.1 Beta 2</p> 
 </div>
 </div>
-<script src="mainCode.js"></script>
 <script>
 
-function downloadtxt() {
-    const editableDivs = document.getElementById("mainDiv");
-    const htmlContent = editableDivs.innerHTML
-    const blob = new Blob([htmlContent], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = document.getElementById("inputTitle").value + '.txt';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-}
+
 
 function color() {
 color = document.getElementById("inputColorDesign").value
@@ -89,5 +74,6 @@ function textBlack() {
 
 setInterval(color, 1000)
 </script>
+<script src="mainCode.js"></script>
 </body>
 </html>

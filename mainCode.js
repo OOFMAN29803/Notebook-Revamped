@@ -1,4 +1,4 @@
-let timer;
+var timer;
 var inactivityThreshold = 600000; 
 var experiment1 = 1;
 var experiment2 = 1;
@@ -14,8 +14,11 @@ let modifiedHexValueAll5 = "000000";
 let buttonhovers = "#000000";
 let controlColor = "#ade4ff"
 var mainDivWidth = "70%";
-let ag632n8gdoa829lk52h682p = '2935'
-let highlight = "#FFFF00"
+let highlight = "#FFFF00";
+let mainDivNumber = 1;
+let currentDiv = 0;
+
+console.log(highlight)
 
 function modifyDecimal(value, modifier) {
   var result = (value + modifier) % 256;
@@ -67,7 +70,7 @@ function updateUI(colors) {
   button3.disabled = true
   button3.style.backgroundColor = "#FF7D7D"
   button3.onclick = console.log('disabled')
-var mainDiv = document.getElementById("mainDiv")
+var mainDiv = document.getElementById("mainDiv" + currentDiv)
   var toptopbar = document.getElementById("topBarTopTop")
   var sidemenu = document.getElementById("topBanner");
   var allbuttons = document.querySelectorAll("button");
@@ -82,6 +85,16 @@ var mainDiv = document.getElementById("mainDiv")
     button.style.border = "3px solid " + colors[0];
     console.log(colors[4])
   });
+}
+
+function red() {
+	highlight = "#ff0000"
+}
+function green() {
+	highlight = "#33FF00"
+}
+function blue() {
+	highlight = "#2693FF"
 }
 
 
@@ -143,12 +156,14 @@ document.getElementById('highlightButton').addEventListener('click', function ()
     const span = document.createElement('span');
     span.style.backgroundColor = highlight
     span.textContent = selectedText;
+	console.log("done")
 
     range.deleteContents();
     range.insertNode(span);
   }
 });
 
+console.log(highlight)
 
 document.getElementById('italicButton').addEventListener('click', function () {
   const contentDiv = document.getElementById('textarea');
@@ -201,7 +216,7 @@ input.id = "fileInput"
   });
 
   // Get the reference to the 'mainDiv' element
-  const mainDiv = document.getElementById('mainDiv');
+  const mainDiv = document.getElementById('mainDiv' + currentDiv);
 
   // Handle the selected file based on its type
   if (file.type.startsWith('text/')) {
@@ -267,16 +282,15 @@ document.title = mainInputTitle + " - Notebook Revamped"
 
 
 function clearButton() {
-div = document.getElementById("mainDiv")
+div = document.getElementById("mainDiv" + currentDiv)
 div.innerHTML = ""
 }
 
 function AIopenMenu() {
 aiMenu = document.getElementById("mainAIDiv")
+mainDiv = document.getElementById("mainDiv" + currentDiv)
 aiMenu.style.display = "block"
-
-
-mainDiv = document.getElementById("mainDiv")
+mainDiv.style.width = mainDivWidth
 mainDiv.style.width = "50%"
 mainDiv.style.marginRight = "250px"
 }
@@ -284,7 +298,7 @@ mainDiv.style.marginRight = "250px"
 function AIcloseMenu() {
 aiMenu = document.getElementById("mainAIDiv")
 aiMenu.style.display = "none"
-mainDiv = document.getElementById("mainDiv")
+mainDiv = document.getElementById("mainDiv" + currentDiv)
 mainDiv.style.width = mainDivWidth
 mainDiv.style.marginRight = "0px"
 }
@@ -341,20 +355,13 @@ function updateTime() {
 
 }
 
-function updateTime2() {
-  const currentTime = new Date();
-  const hours = currentTime.getHours();
-  const minutes = currentTime.getMinutes();
-  const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-  var time = document.getElementById("timeAmbience2");
-  time.innerHTML = hours.toString().padStart(2, '0') + "<br>" + minutes.toString().padStart(2, '0');
 
-}
 
 
 function openCustom() {
 custom = document.getElementById("customization")
 custom.style.width = "60%"
+custom.style.border = "3px solid #8892BA";
 custom.style.height = "70vh"
 }
 
@@ -362,6 +369,8 @@ function closeCustom() {
 custom = document.getElementById("customization")
 custom.style.width = "0%"
 custom.style.height = "0vh"
+custom.style.border = "none";
+
 }
 
 document.addEventListener('keydown', function(event) {
@@ -467,26 +476,6 @@ closeDiv.style.height = "0px"
 closeDiv.style.padding = "0px";
 }
 
-function openExtrasMenu() {
-var extrasFunction = document.getElementById("extrasDiv")
-var mainDiv = document.getElementById("mainDiv")
-mainDiv.style.height = "56vh";
-extrasFunction.style.height = "55px";
-extrasFunction.style.border = "3px solid #93C2D9";
-var extraButton = document.getElementById("smallButton")
-extraButton.onclick = closeExtrasMenu;
-}
-
-function closeExtrasMenu() {
-var extrasFunction = document.getElementById("extrasDiv")
-var mainDiv = document.getElementById("mainDiv")
-mainDiv.style.height = "64vh";
-extrasFunction.style.height = "0px";
-extrasFunction.style.border = "none";
-var extraButton = document.getElementById("smallButton")
-extraButton.onclick = openExtrasMenu;
-}
-
 function getChromeVersion() {
     const userAgent = navigator.userAgent;
     const chromeVersionMatch = userAgent.match(/Chrome\/([0-9.]+)/);
@@ -523,13 +512,80 @@ function checkChromeVersion() {
 
 checkChromeVersion();
 
-function canCreateTextSession() {
-console.log("this function is unavailable right now. This is reserved for Gemini Nano intergration with Notebook Revamped")
+function multitasking() {
+  var currentMain = document.getElementById("mainDiv" + currentDiv);
+  
+  currentDiv++;
+  
+  var newMain = document.createElement("div");
+  newMain.id = "mainDiv" + currentDiv;
+  newMain.className = "mainDiv";
+  newMain.setAttribute("contenteditable", "true")
+  // Style the new div
+  newMain.style.width = "70%";
+  newMain.style.height = "54vh";
+  newMain.style.display = "block";
+
+  currentMain.style.width = "0%";
+  currentMain.style.float = "right";
+  currentMain.style.padding = "0px";
+  currentMain.style.border = "none"
+  
+  var centerElement = document.createElement("center");
+  centerElement.appendChild(newMain);
+  
+  var container = document.getElementById("container");
+  if (!container) {
+    container = document.body; 
+  }
+    container.appendChild(centerElement);
+  
+  console.log("Created new div with ID:", newMain.id);
+  
+  return newMain; 
 }
 
+function buttonShow() {
+	if (currentDiv > 0) {
+		
+	} else {
+		
+	}
+	
+}
 
+function openExtrasMenu() {
+var extrasFunction = document.getElementById("extrasDiv")
+var mainDiv = document.getElementById("mainDiv" + currentDiv)
+mainDiv.style.height = "54vh";
+extrasFunction.style.height = "60px";
+extrasFunction.style.border = "3px solid #82ABBF";
+var extraButton = document.getElementById("smallButton")
+extraButton.onclick = closeExtrasMenu;
+}
 
+function closeExtrasMenu() {
+var extrasFunction = document.getElementById("extrasDiv")
+var mainDiv = document.getElementById("mainDiv" + currentDiv)
+mainDiv.style.height = "64vh";
+extrasFunction.style.height = "0px";
+extrasFunction.style.border = "none";
+var extraButton = document.getElementById("smallButton")
+extraButton.onclick = openExtrasMenu;
+}
+
+function downloadtxt() {
+    const editableDivs = document.getElementById("mainDiv" + currentDiv);
+    const htmlContent = editableDivs.innerHTML
+    const blob = new Blob([htmlContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = document.getElementById("inputTitle").value + '.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
 setInterval(updateTime, 60);
-setInterval(updateTime2, 60);
 updateTime();
 setInterval(mainTitle, 1000);

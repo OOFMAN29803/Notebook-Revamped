@@ -30,7 +30,7 @@ background-color: #BFDED4;
 border: 3px solid #ADCCBE;
 }
 
-#mainDiv {
+.mainDiv {
 transition: 0.3s ease;
 width: 70%;
 height: 64vh;
@@ -58,7 +58,7 @@ overflow: auto;
 border: 3px solid #93C2D9;
 }
 
-#mainDiv:focus {
+.mainDiv:focus {
 background-color: #ffffff;
 border-radius: 20px;
 border: 3px solid #D8F2ED;
@@ -356,8 +356,9 @@ top: 20%;
 left: 20%;
 width: 0%;
 height: 0vh;
-background-color: #C9F1FF;
+background-color: #BAC8FF;
 border-radius: 20px;
+border: none;
 overflow: hidden;
 transition: 0.3s ease;
 }
@@ -719,4 +720,36 @@ width: 100%;
 word-wrap: wrap;
 font-weight: 600;
 margin-bottom: -30px;
+}
+
+.skibidi {
+display: inline-block; 
+}
+
+.highlightColorsDiv {
+	float: left;
+	background-color: #9BCCDF5;
+	border: 3px solid #9EADCF;
+	height: 40px;
+	width: 10%;
+	margin-left: 20px;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+.highlights {
+	margin-left: 5px;
+	width: 21%;
+	height: 30px;
+	border: none;
+	margin-top: 5px;
+}
+
+.highlights:hover {
+	border: none;
+}
+
+.multiButton {
+	margin-top: 7px;
+	float: left;
 }
