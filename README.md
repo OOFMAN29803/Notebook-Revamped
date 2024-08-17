@@ -7,9 +7,9 @@
 
 # RELEASED 
 
-Current version: V1.1 Beta 1
+Current version: V1.1 Beta 2
 
-*Note: Beta 2 is delayed as some things are getting worked on that took longer than a max 2 week timeframe*
+*Note: Multitasking is basically not functional but is a proof of concept, will be updated* 
 
 ### Features:
 - Download Notes: Easily download your notes for offline access.
