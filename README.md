@@ -1,5 +1,14 @@
-# Notebook Revamped
+# Notebook Revamped !!READ BELOW!!
 
+## Motebook Revamped is currently going to be deprecated as it is being put into the AllOneWeb of AllOneTech and is starting to become closed source. I know thatt this for very few importamt people this might seem very annoying but it is for good reasons
+- Hot patching
+- Account Docs (Eventually)
+- Auto Saving (Eventually)
+- Proper AI intergration
+- Doc sharing (Eventually)
+### I understand that this might be annoying, but you are free to fork and change, and build on everything here! Think of this as an open source model.
+
+# As of the 26th of October, this project has changed sources. Goodbye Open Source, HELLO for the better!
 
 ## Notebook Revamped is a feature-rich notebook application that allows you to efficiently manage and style your notes with various formatting options.
 
